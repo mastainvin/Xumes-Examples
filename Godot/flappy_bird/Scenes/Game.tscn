@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmkujg8e7016"]
+
+[ext_resource type="PackedScene" uid="uid://bhiwx4nbjuhi0" path="res://Scenes/SkyBackground.tscn" id="1_0mtqc"]
+[ext_resource type="PackedScene" uid="uid://5emv37rnxf22" path="res://Scenes/Ground.tscn" id="4_nnlg1"]
+[ext_resource type="Script" path="res://Scripts/PipesSpawner.gd" id="5_ap51r"]
+[ext_resource type="PackedScene" uid="uid://b67y8gfmvhfgv" path="res://Scenes/UI.tscn" id="6_dpci1"]
+[ext_resource type="PackedScene" uid="uid://d23s185xfy0ta" path="res://Scenes/HUD.tscn" id="7_t017n"]
+[ext_resource type="PackedScene" uid="uid://dvc63fj7ty7ia" path="res://Scenes/Bird.tscn" id="8_ao2es"]
+
+[node name="Game" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 256)
+
+[node name="SkyBackground" parent="." instance=ExtResource("1_0mtqc")]
+
+[node name="Ground" parent="." instance=ExtResource("4_nnlg1")]
+z_index = 1
+position = Vector2(144, 480)
+
+[node name="PipesSpawner" type="Node2D" parent="."]
+script = ExtResource("5_ap51r")
+pipes_scroll_speed = 100.0
+
+[node name="SpawnTimer" type="Timer" parent="PipesSpawner"]
+wait_time = 1.5
+
+[node name="UI" parent="." instance=ExtResource("6_dpci1")]
+
+[node name="HUD" parent="." instance=ExtResource("7_t017n")]
+
+[node name="Bird" parent="." instance=ExtResource("8_ao2es")]
+collision_layer = 3
+rotation_speed = 4.0
+
+[connection signal="timeout" from="PipesSpawner/SpawnTimer" to="PipesSpawner" method="_on_spawn_timer_timeout"]

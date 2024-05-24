@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://5emv37rnxf22"]
+
+[ext_resource type="Script" path="res://Scripts/Ground.gd" id="1_32li5"]
+[ext_resource type="Shader" path="res://Shaders/ScrollingEffect.gdshader" id="2_qkwmc"]
+[ext_resource type="Texture2D" uid="uid://cyjtuin5go5xg" path="res://Assets/Sprite/base.png" id="3_csqge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ricu5"]
+shader = ExtResource("2_qkwmc")
+shader_parameter/speed = 0.25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue04s"]
+size = Vector2(336, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frxrt"]
+size = Vector2(336, 22)
+
+[node name="Ground" type="StaticBody2D"]
+script = ExtResource("1_32li5")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ricu5")
+texture = ExtResource("3_csqge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ue04s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -45)
+shape = SubResource("RectangleShape2D_frxrt")
+debug_color = Color(1, 0, 0.0901961, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

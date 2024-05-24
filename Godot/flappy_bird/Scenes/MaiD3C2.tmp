@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmkujg8e7016"]
+
+[ext_resource type="Shader" path="res://ScrollingEffect.gdshader" id="1_btr1o"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_k3k2e"]
+[ext_resource type="Texture2D" uid="uid://dqnvim3g2n5qa" path="res://Assets/Sprite/background-day.png" id="2_i61i6"]
+[ext_resource type="PackedScene" uid="uid://5emv37rnxf22" path="res://Scenes/Ground.tscn" id="3_e4at4"]
+[ext_resource type="PackedScene" uid="uid://dvc63fj7ty7ia" path="res://Scenes/Bird.tscn" id="3_krg6l"]
+[ext_resource type="Script" path="res://Scripts/SkyBackground.gd" id="3_whsps"]
+[ext_resource type="Texture2D" uid="uid://k62ercw1ysir" path="res://Assets/Sprite/UI/message.png" id="4_4yfpn"]
+[ext_resource type="Script" path="res://Scripts/PipesSpawner.gd" id="5_2v40y"]
+[ext_resource type="PackedScene" uid="uid://d23s185xfy0ta" path="res://Scenes/HUD.tscn" id="7_27wq2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnvn5"]
+shader = ExtResource("1_btr1o")
+shader_parameter/speed = 0.25
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k3k2e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 256)
+
+[node name="SkyBackground" type="TextureRect" parent="."]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_gnvn5")
+texture = ExtResource("2_i61i6")
+script = ExtResource("3_whsps")
+
+[node name="Title" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_right = 92.0
+offset_bottom = 267.0
+grow_horizontal = 2
+texture = ExtResource("4_4yfpn")
+
+[node name="Ground" parent="." instance=ExtResource("3_e4at4")]
+z_index = 1
+position = Vector2(144, 480)
+
+[node name="PipesSpawner" type="Node2D" parent="."]
+script = ExtResource("5_2v40y")
+pipes_scroll_speed = 100.0
+
+[node name="SpawnTimer" type="Timer" parent="PipesSpawner"]
+wait_time = 1.75
+
+[node name="Bird" parent="." instance=ExtResource("3_krg6l")]
+rotation_speed = 4.0
+
+[node name="HUD" parent="." instance=ExtResource("7_27wq2")]
+visible = false
+
+[connection signal="timeout" from="PipesSpawner/SpawnTimer" to="PipesSpawner" method="_on_spawn_timer_timeout"]

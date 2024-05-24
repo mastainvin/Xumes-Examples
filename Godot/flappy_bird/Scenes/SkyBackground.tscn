@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhiwx4nbjuhi0"]
+
+[ext_resource type="Shader" path="res://Shaders/ScrollingEffect.gdshader" id="1_v2g16"]
+[ext_resource type="Texture2D" uid="uid://dqnvim3g2n5qa" path="res://Assets/Sprite/background-day.png" id="2_bgs53"]
+[ext_resource type="Script" path="res://Scripts/SkyBackground.gd" id="3_cgm4e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnvn5"]
+shader = ExtResource("1_v2g16")
+shader_parameter/speed = 0.25
+
+[node name="SkyBackground" type="TextureRect"]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_gnvn5")
+texture = ExtResource("2_bgs53")
+script = ExtResource("3_cgm4e")

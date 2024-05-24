@@ -1,0 +1,138 @@
+[gd_scene load_steps=15 format=3 uid="uid://b67y8gfmvhfgv"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_supi5"]
+[ext_resource type="Texture2D" uid="uid://bwk0t860df05d" path="res://Assets/Sprite/UI/medal_bronze.png" id="2_n8af0"]
+[ext_resource type="Texture2D" uid="uid://8d66muc5c0y8" path="res://Assets/Sprite/UI/label_flappy_bird.png" id="2_tdtgo"]
+[ext_resource type="Texture2D" uid="uid://dcfe2ljjidm1e" path="res://Assets/Sprite/UI/label_get_ready.png" id="3_0hgfg"]
+[ext_resource type="Texture2D" uid="uid://67vxsqtltl40" path="res://Assets/Sprite/UI/medal_platinum.png" id="3_1x06q"]
+[ext_resource type="Texture2D" uid="uid://d34ujuyoy1vpx" path="res://Assets/Sprite/UI/panel_score.png" id="3_gbibf"]
+[ext_resource type="Texture2D" uid="uid://d2pw1fqn1rppl" path="res://Assets/Sprite/UI/gameover.png" id="3_vx6yn"]
+[ext_resource type="Texture2D" uid="uid://b3hd0ppitlrdp" path="res://Assets/Sprite/UI/instructions.png" id="4_4tmnk"]
+[ext_resource type="Texture2D" uid="uid://bkftsvcacdr4t" path="res://Assets/Sprite/UI/Buttons/button_play_normal.png" id="4_t2n8y"]
+[ext_resource type="Texture2D" uid="uid://biojob3r3g0o6" path="res://Assets/Sprite/UI/Buttons/button_play_pressed.png" id="4_ydc8f"]
+[ext_resource type="Texture2D" uid="uid://c8toifpacdf12" path="res://Assets/Sprite/UI/Buttons/button_score_normal.png" id="6_e5hb5"]
+[ext_resource type="Texture2D" uid="uid://cj3d4p6axa86r" path="res://Assets/Sprite/UI/medal_gold.png" id="7_7vi64"]
+[ext_resource type="FontFile" uid="uid://c8uot2o3ghaqh" path="res://Assets/flappy-bird-font.otf" id="8_lg6e6"]
+[ext_resource type="Texture2D" uid="uid://dylr1klty352e" path="res://Assets/Sprite/UI/Buttons/button_score_pressed.png" id="9_c3j3k"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_supi5")
+bronze = ExtResource("2_n8af0")
+platinum = ExtResource("3_1x06q")
+gold = ExtResource("7_7vi64")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.167
+offset_top = 15.0
+offset_right = 74.1663
+offset_bottom = 55.0
+grow_horizontal = 2
+texture = ExtResource("2_tdtgo")
+expand_mode = 3
+
+[node name="Countdown" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 65.0
+offset_right = 46.0
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_constants/separation = 25
+
+[node name="GetReady" type="TextureRect" parent="Countdown"]
+layout_mode = 2
+texture = ExtResource("3_0hgfg")
+
+[node name="Instructions" type="TextureRect" parent="Countdown"]
+layout_mode = 2
+texture = ExtResource("4_4tmnk")
+expand_mode = 5
+
+[node name="CountdownTimer" type="Timer" parent="Countdown"]
+wait_time = 3.0
+
+[node name="GameOver" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -141.0
+offset_right = 96.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="TextureRect" parent="GameOver"]
+layout_mode = 2
+texture = ExtResource("3_vx6yn")
+
+[node name="Panel" type="TextureRect" parent="GameOver"]
+layout_mode = 2
+texture = ExtResource("3_gbibf")
+expand_mode = 5
+
+[node name="Medal" type="TextureRect" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 34.5
+offset_right = 61.0
+offset_bottom = 74.5
+texture = ExtResource("7_7vi64")
+
+[node name="Score" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 25.5
+offset_right = 175.0
+offset_bottom = 48.5
+theme_override_fonts/font = ExtResource("8_lg6e6")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BestScore" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 61.5
+offset_right = 175.0
+offset_bottom = 84.5
+theme_override_fonts/font = ExtResource("8_lg6e6")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="GameOver/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_t2n8y")
+texture_pressed = ExtResource("4_ydc8f")
+
+[node name="ScoreButton" type="TextureButton" parent="GameOver/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_e5hb5")
+texture_pressed = ExtResource("9_c3j3k")
+
+[connection signal="timeout" from="Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="pressed" from="GameOver/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

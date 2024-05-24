@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf32mjm31rhvb"]
+
+[ext_resource type="Script" path="res://Scripts/Pipes.gd" id="1_h75ve"]
+[ext_resource type="Texture2D" uid="uid://dccgvhb1yg1bm" path="res://Assets/Sprite/pipe-green.png" id="2_oyafu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtvqu"]
+size = Vector2(47.5, 605.866)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owne6"]
+size = Vector2(8, 104)
+
+[node name="Pipes" type="Node2D"]
+position = Vector2(0, 30)
+script = ExtResource("1_h75ve")
+
+[node name="TopPipe" type="Area2D" parent="."]
+position = Vector2(288, 64)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
+texture = ExtResource("2_oyafu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
+position = Vector2(0.500397, 596.776)
+scale = Vector2(1, 2.48)
+shape = SubResource("RectangleShape2D_rtvqu")
+debug_color = Color(0.847059, 0.376471, 0, 0.419608)
+
+[node name="BottomPipe" type="Area2D" parent="."]
+position = Vector2(288, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
+texture = ExtResource("2_oyafu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
+position = Vector2(-0.25, 144.933)
+shape = SubResource("RectangleShape2D_rtvqu")
+debug_color = Color(0.847059, 0.376471, 0, 0.419608)
+
+[node name="PointArea" type="Area2D" parent="."]
+position = Vector2(288, 272)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointArea"]
+position = Vector2(28, 0)
+shape = SubResource("RectangleShape2D_owne6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 1)
+rect = Rect2(0, -30, 350, 512)
+
+[connection signal="body_entered" from="TopPipe" to="." method="_on_top_pipe_body_entered"]
+[connection signal="body_entered" from="BottomPipe" to="." method="_on_bottom_pipe_body_entered"]
+[connection signal="body_exited" from="PointArea" to="." method="_on_point_area_body_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
