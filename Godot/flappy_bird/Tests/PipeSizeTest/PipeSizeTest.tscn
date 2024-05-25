@@ -13,6 +13,9 @@ script = ExtResource("1_uwgsu")
 [node name="PipesSpawner" parent="Game" index="3"]
 script = ExtResource("3_y524i")
 
+[node name="SpawnTimer" parent="Game/PipesSpawner" index="0"]
+wait_time = 2.0
+
 [node name="UI" parent="Game" index="4"]
 visible = false
 

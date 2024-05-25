@@ -37,7 +37,7 @@ class Fly(Agent):
             }),
             action_space=spaces.Discrete(2),
             max_episode_length=1000,
-            total_timesteps=int(1_000_000),
+            total_timesteps=int(3_000_000),
             algorithm_type="MultiInputPolicy",
             algorithm=stable_baselines3.PPO,
             save_path="./models/fly",
@@ -53,12 +53,10 @@ class Fly(Agent):
     def reward(self):
         if self.score > self.points:
             self.points = self.score
-            if self.points >= 2:
-                return 10
             return 1
 
         if self.dead or self.Game.Bird.position[1] < 0:
-            return -1000
+            return -1
         return 0
 
     def terminated(self):
