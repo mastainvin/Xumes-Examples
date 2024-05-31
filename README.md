@@ -5,7 +5,7 @@ This repository gather all the experiments made with `Xumes`.
 You can install `Xumes` with pip:
 
 ```
-    pip install xumes
+pip install xumes
 ```
 
 Check the documenttion for more information.
@@ -16,16 +16,14 @@ Check the documenttion for more information.
 
 #### Flappy Bird
 
-https://github.com/MariusMadsen/godot_flappy_bird
-
 ```
-@misc{Charles2013,
-  author = {Charles, P.W.D.},
-  title = {Project Title},
+@misc{sarahpuspdew,
+  author = {Sarah Puspa Dewi},
+  title = {Flappy-Bird-the-game},
   year = {2024},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/charlespwd/project-title}},
-  commit = {4f57d6a0e4c030202a07a60bc1bb1ed1544bf679}
+  howpublished = {\url{https://github.com/sarahpuspdew/Flappy-Bird-the-game}},
+  commit = {42bca2dce8fd4429f10aacbea0812012002e900b}
 }
 ```
