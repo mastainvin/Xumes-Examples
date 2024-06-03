@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.gd"
 SaveFile="*res://Scripts/SaveFile.gd"
-RewardManager="*res://test/pipe_size_delta/RewardManager.gd"
 
 [display]
 
