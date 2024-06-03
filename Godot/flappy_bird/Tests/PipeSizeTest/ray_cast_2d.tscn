@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cabr4ke5nxhqe"]
-
-[ext_resource type="Script" path="res://Tests/PipeSizeTest/ray_cast_2d.gd" id="1_2v7yx"]
-
-[node name="RayCast2D" type="RayCast2D"]
-testing_state = "distance"
-collide_with_areas = true
-collide_with_bodies = false
-script = ExtResource("1_2v7yx")
