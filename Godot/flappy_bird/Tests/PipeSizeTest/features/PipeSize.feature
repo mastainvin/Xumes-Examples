@@ -1,7 +1,7 @@
 Feature: Flappy Bird Game
 
 
-	@easy
+	@easy @smoke
 	Scenario Outline: Testing the pipe size easy
 		Given first pipe at <i> and second pipe at <j>
 		When bird flies
@@ -39,6 +39,6 @@ Feature: Flappy Bird Game
 		Examples:
 			| i   | j   | k |
 			| 0   | 1   | 2 |
-			| 1   | 0 | 2 |
+			| 1   | 0   | 2 |
 
 

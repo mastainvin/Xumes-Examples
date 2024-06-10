@@ -9,7 +9,7 @@ class Fly(Agent):
     def __init__(self):
         super().__init__(
             observation_space=spaces.Dict({
-                "velocity": spaces.Box(-float('inf'), 300, shape=(2,), dtype=float),
+                "velocity": spaces.Box(-float('inf'), float('inf'), shape=(2,), dtype=float),
                 "X": spaces.Box(-float('inf'), float('inf'), shape=(1,), dtype=float),
                 "Y": spaces.Box(-float('inf'), float('inf'), shape=(1,), dtype=float),
                 "Y1": spaces.Box(-float('inf'), float('inf'), shape=(1,), dtype=float),
@@ -27,7 +27,7 @@ class Fly(Agent):
 
     def observation(self):
         velocity = self.Game.Bird.velocity
-        return {"velocity": np.array(velocity), "X": np.array(self.X), "Y": np.array(self.Y), "Y1": np.array(self.Y1)}
+        return {"velocity": np.array(velocity, dtype=float), "X": np.array([self.X], dtype=float), "Y": np.array([self.Y], dtype=float), "Y1": np.array([self.Y1], dtype=float)}
 
     def reward(self):
         if self.score > self.points:
