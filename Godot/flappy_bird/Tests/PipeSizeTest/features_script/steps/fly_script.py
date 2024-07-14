@@ -8,7 +8,7 @@ from xumes import Input
 
 from xumes import GodotAction
 
-from Tests.PipeSizeTest.features.steps.fly import Fly
+from Tests.PipeSizeTest.features_imitation_learning.steps.fly_lambda_imitator import Fly
 
 
 class FlyScript(Script):
