@@ -1,12 +1,15 @@
 import numpy as np
+import pygame
 import stable_baselines3
 from gymnasium import spaces
 
-from xumes import Agent
+from xumes import Agent, Imitator, LambdaImitator
 from xumes import GodotAction
+from xumes import Imitable
+from xumes.modules.imitation_learning.bc import BC
 
 
-class Fly(Agent):
+class Fly(Agent, Imitable):
 
     def __init__(self, model_path: str = None, previous_model_path: str = None):
         super().__init__(
@@ -56,3 +59,16 @@ class Fly(Agent):
         if raw_actions == 1:
             return [GodotAction("jump")]
         return []
+
+    def imitator(self) -> Imitator:
+        return FlyImitator(algorithm=BC(20),
+                           threshold=2,
+                           collected_data_path="./Tests/PipeSizeTest/models/fly")
+
+
+class FlyImitator(Imitator):
+
+    def convert_input(self, keys) -> np.ndarray:
+        if keys[pygame.K_SPACE]:
+            return np.array([1])
+        return np.array([0])

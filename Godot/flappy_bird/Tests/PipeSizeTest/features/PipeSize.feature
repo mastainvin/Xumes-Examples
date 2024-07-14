@@ -40,5 +40,3 @@ Feature: Flappy Bird Game
 			| i   | j   | k |
 			| 0   | 1   | 2 |
 			| 1   | 0   | 2 |
-
-

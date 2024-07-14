@@ -1,6 +1,6 @@
 from xumes import config, given, when, then
 
-from Tests.PipeSizeTest.features_script.steps.fly_script import FlyScript
+from Tests.PipeSizeTest.features_imitation_learning.steps.fly_imitator import Fly
 
 
 @config
@@ -13,9 +13,11 @@ def step_impl(context, i, j):
     context.driver.set_pipes_position(i, j)
 
 
-@when("bird flies")
-def step_impl(context):
-    return FlyScript()
+@when("bird flies using {path:s} model")
+def step_impl(context, path):
+    if path == "new":
+        return Fly()
+    return Fly(previous_model_path=path)
 
 
 @then("bird should have passed {i:d} pipes")
