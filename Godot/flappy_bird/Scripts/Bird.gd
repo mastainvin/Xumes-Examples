@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 
 func _input(event):
-	if event.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		jumping()
 		
 		if not GameManager.is_game_started:
