@@ -2,34 +2,36 @@ extends Player
 
 class_name TestPlayer
 
-
 @export var tile_coords_to_type := {
-	Vector2i(7, 4): 3,
-	Vector2i(8, 4): 3,
-	Vector2i(7, 5): 3,
-	Vector2i(8, 5): 3,
+	Vector2i(7, 4): 1,
+	Vector2i(8, 4): 1,
+	Vector2i(7, 5): 1,
+	Vector2i(8, 5): 1,
 	Vector2i(1, 0): 1,
-	Vector2i(0, 0): 2,
+	Vector2i(0, 0): 1,
 }
 
 @export var tilemap: TileMap
 
 var matrix_size: Vector2i 
 
-var environment = []
 
-func set_environment(width: int, height: int):
+var environment = []
+var tilemap_position = Vector2i(0, 0)
+
+func set_environment(width: int, height: int): 
 	matrix_size = Vector2i(width, height)
 	for x in range(width):
 		environment[x]=[]
 		for y in range(height):
 			environment[x][y]=0
+			
 
 
 func _process(delta: float) -> void:
 	super._process(delta)
-	var player_position = global_position
-	environment = get_tile_environment(player_position)
+	environment = get_tile_environment(global_position)
+	tilemap_position = tilemap.local_to_map(global_position)
 	
 func get_tile_environment(player_position: Vector2):
 	var player_tile_position = tilemap.local_to_map(player_position)

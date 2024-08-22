@@ -33,6 +33,10 @@ window/stretch/aspect="keep_height"
 
 project/assembly_name="SMB"
 
+[editor]
+
+run/main_run_args="--fixed-fps 10 --enable-vsync"
+
 [input]
 
 move_left={
@@ -91,5 +95,4 @@ ui_toggle_console={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.580392, 0.580392, 1, 1)

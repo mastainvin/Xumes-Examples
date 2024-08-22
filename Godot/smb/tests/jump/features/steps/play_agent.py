@@ -17,7 +17,7 @@ from xumes import GodotAction
 
 class PlayAgent(Agent, Imitable):
 
-    def __init__(self, model_path: str = None, previous_model_path: str = None, width: int = 25, height: int = 25):
+    def __init__(self, model_path: str = None, previous_model_path: str = None, width: int = 40, height: int = 20):
         super().__init__(
             observation_space=spaces.Dict({
                 "cnn": spaces.Box(low=0, high=3, shape=(width, height), dtype=np.uint8),
@@ -39,8 +39,14 @@ class PlayAgent(Agent, Imitable):
 
         self.width = width
         self.height = height
+        self._goal_environment = np.zeros((self.width, self.height), dtype=np.uint8)
+        self._player_x, self._player_y = self.width // 2, self.height // 2
+        self._previous_target_x, self._previous_target_y = 0, 0
+
 
     def observation(self) -> OBST:
+
+        self.update_goal_environment()
 
         env = self.context.Player.environment
         if not env:
@@ -48,18 +54,35 @@ class PlayAgent(Agent, Imitable):
                 "cnn": np.zeros((self.width, self.height), dtype=np.uint8),
                 "ff": np.zeros(4, dtype=np.float32),
             }
+        env[self._previous_target_x][self._previous_target_y] = 2
         return {
-            "cnn": np.array(self.context.Player.environment, dtype=np.uint8),
+            "cnn": np.array(env, dtype=np.uint8),
             "ff": np.array(self.context.Player.position + self.context.Player.velocity, dtype=np.float32),
         }
 
+    def update_goal_environment(self):
+        goal_x, goal_y = self.context.goal
+        player_x, player_y = self.context.Player.tilemap_position
+
+        diff_x = goal_x - player_x
+        diff_y = goal_y - player_y
+
+        new_target_x = self._player_x + diff_x
+        new_target_y = self._player_y + diff_y
+        if 0 <= new_target_x < self.width and 0 <= new_target_y < self.height:
+            self._goal_environment[self._previous_target_x, self._previous_target_y] = 0
+            self._goal_environment[new_target_x, new_target_y] = 1
+            self._previous_target_x, self._previous_target_y = new_target_x, new_target_y
+
     def reward(self) -> float:
-        if self.context.Player.position[0] > 320:
+        if self.context.in_goal:
             return 1
+        elif self.context.dead:
+            return -1
         return 0
 
     def terminated(self) -> bool:
-        return self.context.Player.position[0] > 320
+        return self.context.dead or self.context.in_goal
 
     def actions(self, raws_actions) -> List[Input]:
         actions = []
