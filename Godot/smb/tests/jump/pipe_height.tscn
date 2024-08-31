@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5x3kqpe28rq5"]
+[gd_scene load_steps=9 format=3 uid="uid://5x3kqpe28rq5"]
 
 [ext_resource type="Script" path="res://tests/jump/pipe_height.gd" id="1_y4bu4"]
 [ext_resource type="TileSet" uid="uid://cecbimox7mcnv" path="res://assets/tilesets/tileset.tres" id="2_8qsda"]
@@ -6,18 +6,13 @@
 [ext_resource type="Script" path="res://tests/jump/player.gd" id="4_hvg68"]
 [ext_resource type="PackedScene" uid="uid://dgnp0rhnp0sux" path="res://scenes/stage/camera.tscn" id="4_icepp"]
 
-[sub_resource type="GDScript" id="GDScript_cmfbh"]
-script/source = "extends Area2D
-
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0im3b"]
 size = Vector2(15, 14)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mxqg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2lwb"]
-size = Vector2(464, 32)
+size = Vector2(671, 32)
 
 [node name="PipeHeightStage" type="FeatureNode"]
 testing_state = "in_goal,dead"
@@ -26,26 +21,25 @@ script = ExtResource("1_y4bu4")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_8qsda")
 format = 2
-layer_0/tile_data = PackedInt32Array(917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 786432, 65536, 0, 720896, 65536, 0, 655360, 65536, 0, 589824, 65536, 0, 524288, 65536, 0, 458752, 65536, 0, 393216, 65536, 0, 327680, 65536, 0, 262144, 65536, 0, 196608, 65536, 0, 131072, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 458764, 65536, 0, 458763, 65536, 0, 458765, 65536, 0, 458762, 65536, 0, 458761, 65536, 0, 458760, 65536, 0, 458766, 65536, 0, 458767, 65536, 0, 458768, 65536, 0, 851994, 0, 0, 917530, 0, 0, 917531, 0, 0, 851995, 0, 0, 851996, 0, 0, 917532, 0, 0, 458780, 65536, 0, 393244, 65536, 0, 327708, 65536, 0, 262172, 65536, 0, 196636, 65536, 0, 131100, 65536, 0, 524316, 65536, 0, 589852, 65536, 0, 655388, 65536, 0, 720924, 65536, 0, 786460, 65536, 0, 28, 65536, 0, 65564, 65536, 0)
+layer_0/tile_data = PackedInt32Array(851982, 0, 0, 851986, 0, 0, 851985, 0, 0, 851984, 0, 0, 851983, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 917522, 0, 0, 917521, 0, 0, 917520, 0, 0, 917519, 0, 0, 917518, 0, 0, 917517, 0, 0, 917516, 0, 0, 917515, 0, 0, 917514, 0, 0)
 
 [node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_h7xgl")]
 testing_state = "is_jumping,position,velocity,environment,tilemap_position"
-position = Vector2(200, 111)
+position = Vector2(232, 207)
 collision_layer = 1
 script = ExtResource("4_hvg68")
 tile_coords_to_type = {
-Vector2i(0, 0): 1,
+Vector2i(0, 0): 2,
 Vector2i(1, 0): 1,
-Vector2i(7, 4): 1,
-Vector2i(7, 5): 1,
-Vector2i(8, 4): 1,
-Vector2i(8, 5): 1
+Vector2i(7, 4): 3,
+Vector2i(7, 5): 3,
+Vector2i(8, 4): 3,
+Vector2i(8, 5): 3
 }
 tilemap = NodePath("../TileMap")
 
 [node name="Hitbox" parent="Player" index="5"]
 visible = true
-script = SubResource("GDScript_cmfbh")
 
 [node name="Big" parent="Player/Hitbox" index="1"]
 position = Vector2(0, -6)
@@ -70,10 +64,11 @@ offset_bottom = 8.0
 texture = SubResource("ViewportTexture_mxqg8")
 
 [node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(-2, 32)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(232, 208)
+position = Vector2(232.5, 208)
 shape = SubResource("RectangleShape2D_t2lwb")
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

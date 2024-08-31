@@ -16,9 +16,9 @@ func _ready() -> void:
 	in_goal = false
 	dead = false
 
-func set_pipe_size(size: int):
+func set_pipe(x: int, y: int, size: int):
 	if size > 0:
-		resize_pipe(Vector2(12, 12), size, Vector2(7,4),  Vector2(8,4), Vector2(7,5), Vector2(8,5))
+		resize_pipe(Vector2(x, y), size, Vector2(7,4),  Vector2(8,4), Vector2(7,5), Vector2(8,5))
 	
 func set_environment(width: int, height: int):
 	player.set_environment(width, height)

@@ -31,10 +31,10 @@ class PlayAgent(Agent, Imitable):
             save_path=model_path if model_path is not None else "./tests/jump/models/play",
             previous_model_path=previous_model_path,
             eval_freq=10000,
-            policy_kwargs={"features_extractor_class": CustomCombinedExtractor, "features_extractor_kwargs": {
-                "cnn_obs_space": spaces.Box(low=0, high=3, shape=(width, height), dtype=np.uint8),
-                "ff_obs_space": spaces.Box(low=-float('inf'), high=float('inf'), shape=(4,), dtype=np.float32),
-            }}
+            # policy_kwargs={"features_extractor_class": CustomCombinedExtractor, "features_extractor_kwargs": {
+            #     "cnn_obs_space": spaces.Box(low=0, high=3, shape=(width, height), dtype=np.uint8),
+            #     "ff_obs_space": spaces.Box(low=-float('inf'), high=float('inf'), shape=(4,), dtype=np.float32),
+            # }}
         )
 
         self.width = width
@@ -42,25 +42,27 @@ class PlayAgent(Agent, Imitable):
         self._goal_environment = np.zeros((self.width, self.height), dtype=np.uint8)
         self._player_x, self._player_y = self.width // 2, self.height // 2
         self._previous_target_x, self._previous_target_y = 0, 0
+        self._previous_player_x, self._previous_player_y = self._player_x, self._player_y
 
 
     def observation(self) -> OBST:
 
-        self.update_goal_environment()
 
         env = self.context.Player.environment
+
+        self.update_environment(env)
+
         if not env:
             return {
                 "cnn": np.zeros((self.width, self.height), dtype=np.uint8),
                 "ff": np.zeros(4, dtype=np.float32),
             }
-        env[self._previous_target_x][self._previous_target_y] = 2
         return {
             "cnn": np.array(env, dtype=np.uint8),
             "ff": np.array(self.context.Player.position + self.context.Player.velocity, dtype=np.float32),
         }
 
-    def update_goal_environment(self):
+    def update_environment(self, env):
         goal_x, goal_y = self.context.goal
         player_x, player_y = self.context.Player.tilemap_position
 
@@ -69,17 +71,42 @@ class PlayAgent(Agent, Imitable):
 
         new_target_x = self._player_x + diff_x
         new_target_y = self._player_y + diff_y
-        if 0 <= new_target_x < self.width and 0 <= new_target_y < self.height:
-            self._goal_environment[self._previous_target_x, self._previous_target_y] = 0
-            self._goal_environment[new_target_x, new_target_y] = 1
+
+        if 0 <= new_target_x < len(env) and 0 <= new_target_y < len(env[0]):
+            env[new_target_x][new_target_y] = 2
             self._previous_target_x, self._previous_target_y = new_target_x, new_target_y
 
     def reward(self) -> float:
+        reward = 0
+
+        # Récompense pour atteindre l'objectif
         if self.context.in_goal:
-            return 1
-        elif self.context.dead:
-            return -1
-        return 0
+            return 1  # Grande récompense pour avoir atteint l'objectif
+
+        # Pénalité pour mourir
+        if self.context.dead:
+            return -1  # Grande pénalité pour être mort
+
+        # Récompense basée sur la distance à l'objectif
+        goal_x, goal_y = self.context.goal
+        player_x, player_y = self.context.Player.tilemap_position
+        distance_to_goal = np.sqrt((goal_x - player_x) ** 2 + (goal_y - player_y) ** 2)
+        previous_distance_to_goal = np.sqrt((goal_x - self._previous_player_x) ** 2 + (goal_y - self._previous_player_y) ** 2)
+
+        # Si l'agent se rapproche de l'objectif, petite récompense
+        if distance_to_goal < previous_distance_to_goal:
+            reward += 0.01
+        else:
+            reward -= 0.01
+
+        # Mettre à jour la position précédente du joueur
+        self._previous_player_x, self._previous_player_y = player_x, player_y
+
+        # Ajouter d'autres récompenses/pénalités selon le contexte
+        if abs(self.context.Player.velocity[0]) > 1:
+            reward += 0.005  # Récompense pour maintenir une vitesse
+
+        return reward
 
     def terminated(self) -> bool:
         return self.context.dead or self.context.in_goal
