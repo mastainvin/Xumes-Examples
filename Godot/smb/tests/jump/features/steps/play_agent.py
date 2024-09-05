@@ -30,7 +30,7 @@ class PlayAgent(Agent, Imitable):
             algorithm=stable_baselines3.PPO,
             save_path=model_path if model_path is not None else "./tests/jump/models/play",
             previous_model_path=previous_model_path,
-            eval_freq=10000,
+            eval_freq=1000,
             # policy_kwargs={"features_extractor_class": CustomCombinedExtractor, "features_extractor_kwargs": {
             #     "cnn_obs_space": spaces.Box(low=0, high=3, shape=(width, height), dtype=np.uint8),
             #     "ff_obs_space": spaces.Box(low=-float('inf'), high=float('inf'), shape=(4,), dtype=np.float32),
@@ -124,9 +124,9 @@ class PlayAgent(Agent, Imitable):
         return actions
 
     def imitator(self) -> Imitator:
-        return PlayImitator(algorithm=BC(20),
+        return PlayImitator(algorithm=BC(50),
                             threshold=2,
-                            collected_data_path="./tests/jump/models/play")
+                            collected_data_path=self._save_path)
 
 
 class PlayImitator(Imitator):

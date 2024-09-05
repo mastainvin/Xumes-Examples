@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="TestSuite" tests="1" failures="1" errors="0" skipped="0" timestamp="2024-09-05T22:17:05" time="4.631"><testcase classname="jump" name="Vertical jump [0] - (x1=8, y1=8, mx=11, my=13, platforms=[[7,9,3]], pipes=[])" time="3.656"><failure message="&#10;Test Vertical jump [0] - (x1=8, y1=8, mx=11, my=13, platforms=[[7,9,3]], pipes=[]) FAILED&#10;Actual    : [0] &#10;Expected  : True&#10;&#10;Test Vertical jump [0] - (x1=8, y1=8, mx=11, my=13, platforms=[[7,9,3]], pipes=[]) FAILED&#10;Actual    : [1] &#10;Expected  : False&#10;" type="AssertionError">
+Test Vertical jump [0] - (x1=8, y1=8, mx=11, my=13, platforms=[[7,9,3]], pipes=[]) FAILED
+Actual    : [0] 
+Expected  : True
+
+Test Vertical jump [0] - (x1=8, y1=8, mx=11, my=13, platforms=[[7,9,3]], pipes=[]) FAILED
+Actual    : [1] 
+Expected  : False
+</failure></testcase></testsuite>

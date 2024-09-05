@@ -39,11 +39,9 @@ func resize_pipe(base_coords: Vector2, height: int,
 	tilemap.set_cell(0, top_pos, source_id, top_left_atlas_coords)
 	tilemap.set_cell(0, top_pos + Vector2(1, 0), source_id, top_right_atlas_coords)
 
-func _on_goal_body_entered(body: Node2D) -> void:
-	if body == player:
-		in_goal = true
+
 		
-		
+	
 func _on_goal_body_exited(body: Node2D) -> void:
 	if body == player:
 		in_goal = false
@@ -63,8 +61,12 @@ func set_goal(x: int, y: int):
 	goal.position = tilemap.map_to_local(Vector2i(x, y))
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body == player and player:
 		dead = true
-		
+
+func _on_goal_body_entered(body: Node2D) -> void:
+	if body == player and player:
+		in_goal = true
+
 func set_mario_position(x: int, y: int):
 	player.position = tilemap.map_to_local(Vector2i(x, y))

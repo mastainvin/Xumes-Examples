@@ -22,9 +22,9 @@ def step_impl(context, width, height):
     context.driver.set_environment(width, height)
 
 
-@when("I want to reach the goal")
-def step_impl(context):
-    return PlayAgent(previous_model_path="./tests/jump/models/jump/best_model.zip", width=35, height=15)
+@when("I want to reach the goal with model : {model:s}")
+def step_impl(context, model):
+    return PlayAgent(previous_model_path=model + "/bc_policy", model_path=model, width=35, height=15)
 
 
 @then("Reach the goal without dying")

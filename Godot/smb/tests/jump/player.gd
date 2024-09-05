@@ -33,7 +33,7 @@ func set_environment(width: int, height: int):
 
 
 func _process(delta: float) -> void:
-	super._process(delta)
+	super._process(delta)  # Peut-être pas nécessaire
 	get_tile_environment()
 	tilemap_position = tilemap.local_to_map(global_position)
 	add_block()  # Ajoutez les blocs après avoir mis à jour l'environnement
@@ -44,7 +44,7 @@ func add_block():
 		var relative_position = get_block_relative_position(block.global_position)
 
 		if relative_position.x >= 0 and relative_position.x < matrix_size.x and relative_position.y >= 0 and relative_position.y < matrix_size.y:
-			environment[relative_position.x][relative_position.y] = 4
+			environment[relative_position.x][relative_position.y] = 1
 
 	
 func get_tile_environment():
@@ -83,5 +83,7 @@ func add_to_env_matrix(block):
 	block_env[block] = null
 
 func remove_from_env_matrix(block):
-	block_env.erase(block)
+	if block_env.has(block):
+		block_env.erase(block)
+
 
