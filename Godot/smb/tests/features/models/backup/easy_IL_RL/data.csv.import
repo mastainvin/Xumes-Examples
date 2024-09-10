@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://5kl7j1tkpc78"
+
+[deps]
+
+files=["res://tests/features/models/backup/easy_IL_RL/data.Step.translation", "res://tests/features/models/backup/easy_IL_RL/data.Value.translation"]
+
+source_file="res://tests/features/models/backup/easy_IL_RL/data.csv"
+dest_files=["res://tests/features/models/backup/easy_IL_RL/data.Step.translation", "res://tests/features/models/backup/easy_IL_RL/data.Value.translation"]
+
+[params]
+
+compress=true
+delimiter=0
