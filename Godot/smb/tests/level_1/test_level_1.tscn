@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cdic5nrqt352w"]
 
 [ext_resource type="Script" path="res://tests/level_1/test_level_1.gd" id="1_a2h1n"]
-[ext_resource type="Script" path="res://tests/jump/player.gd" id="3_t1pqc"]
+[ext_resource type="Script" path="res://tests/integration/player.gd" id="3_t1pqc"]
 [ext_resource type="TileSet" uid="uid://cecbimox7mcnv" path="res://assets/tilesets/tileset.tres" id="3_xocva"]
 [ext_resource type="PackedScene" uid="uid://c30a23epjbrps" path="res://scenes/blocks/brick_block.tscn" id="4_6owww"]
 [ext_resource type="PackedScene" uid="uid://df00q74jhgta4" path="res://scenes/blocks/question_block.tscn" id="5_pnccd"]
