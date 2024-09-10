@@ -5,7 +5,7 @@ Feature: Test the first level
     Given The player starts at <p_x> , <p_y>
     And The goal is at <g_x> , <g_y>
     And An environment of size 35 x 15
-    When I want to reach the goal with model : ./tests/features/models/backup/level_1_RL
+    When I want to reach the goal with model : ./tests/features/models/backup/level_1_IL_RL
     Then Reach the goal without dying
 
     Examples:
