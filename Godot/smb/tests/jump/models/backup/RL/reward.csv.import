@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cxc1h421voau"
+
+[deps]
+
+files=["res://tests/jump/models/backup/RL/reward.Step.translation", "res://tests/jump/models/backup/RL/reward.Value.translation"]
+
+source_file="res://tests/jump/models/backup/RL/reward.csv"
+dest_files=["res://tests/jump/models/backup/RL/reward.Step.translation", "res://tests/jump/models/backup/RL/reward.Value.translation"]
+
+[params]
+
+compress=true
+delimiter=0
