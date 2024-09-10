@@ -24,7 +24,9 @@ const SKID_FRICTION = 365.625
 
 # Jump physics vary based on horizontal speed thresholds
 const JUMP_SPEED = [-240.0, -240.0, -300.0]
+
 # const JUMP_SPEED = [-200.0, -200.0, -300.0]
+
 const LONG_JUMP_GRAVITY = [450.0, 421.875, 562.5]
 const GRAVITY = [1575.0, 1350.0, 2025.0]
 
