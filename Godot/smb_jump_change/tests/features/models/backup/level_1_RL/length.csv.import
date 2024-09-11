@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://0fcevunghtuk"
+
+[deps]
+
+files=["res://tests/features/models/backup/level_1_RL/length.Step.translation", "res://tests/features/models/backup/level_1_RL/length.Value.translation"]
+
+source_file="res://tests/features/models/backup/level_1_RL/length.csv"
+dest_files=["res://tests/features/models/backup/level_1_RL/length.Step.translation", "res://tests/features/models/backup/level_1_RL/length.Value.translation"]
+
+[params]
+
+compress=true
+delimiter=0
