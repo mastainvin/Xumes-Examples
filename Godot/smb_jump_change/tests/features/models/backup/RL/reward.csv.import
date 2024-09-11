@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dekacp600m2w6"
+
+[deps]
+
+files=["res://tests/features/models/backup/RL/reward.Step.translation", "res://tests/features/models/backup/RL/reward.Value.translation"]
+
+source_file="res://tests/features/models/backup/RL/reward.csv"
+dest_files=["res://tests/features/models/backup/RL/reward.Step.translation", "res://tests/features/models/backup/RL/reward.Value.translation"]
+
+[params]
+
+compress=true
+delimiter=0
