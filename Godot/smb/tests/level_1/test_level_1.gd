@@ -15,7 +15,7 @@ var dead: bool
 func _ready() -> void:
 	in_goal = false
 	dead = false
-
+	
 func set_environment(width: int, height: int):
 	player.set_environment(width, height)
 	
