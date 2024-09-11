@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cdic5nrqt352w"]
 
 [ext_resource type="Script" path="res://tests/level_1/test_level_1.gd" id="1_a2h1n"]
-[ext_resource type="Script" path="res://tests/integration/player.gd" id="3_t1pqc"]
+[ext_resource type="Script" path="res://tests/integration/test_player.gd" id="3_t1pqc"]
 [ext_resource type="TileSet" uid="uid://cecbimox7mcnv" path="res://assets/tilesets/tileset.tres" id="3_xocva"]
 [ext_resource type="PackedScene" uid="uid://c30a23epjbrps" path="res://scenes/blocks/brick_block.tscn" id="4_6owww"]
 [ext_resource type="PackedScene" uid="uid://df00q74jhgta4" path="res://scenes/blocks/question_block.tscn" id="5_pnccd"]
@@ -241,14 +241,6 @@ testing_state = "is_jumping,position,velocity,environment,tilemap_position"
 position = Vector2(86, 207)
 collision_layer = 1
 script = ExtResource("3_t1pqc")
-tile_coords_to_type = {
-Vector2i(0, 0): 1,
-Vector2i(1, 0): 1,
-Vector2i(7, 4): 1,
-Vector2i(7, 5): 1,
-Vector2i(8, 4): 1,
-Vector2i(8, 5): 1
-}
 tilemap = NodePath("../TileMap")
 
 [node name="Hitbox" parent="Player" index="5"]
