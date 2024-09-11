@@ -1,5 +1,6 @@
 extends Player
 
+
 class_name TestPlayer
 
 var tile_coords_to_type := {
