@@ -8,7 +8,7 @@ from xumes import Input
 
 from xumes import GodotAction
 
-from Tests.PipeSizeTest.features_imitation_learning.steps.fly_lambda_imitator import Fly
+from Tests.root.features_imitation_learning.steps.fly_lambda_imitator import Fly
 
 
 class FlyScript(Script):
@@ -41,11 +41,11 @@ class FlyScript(Script):
 
     def observation(self):
         # convert the game state to an observation
-        velocity = self.context.Game.Bird.velocity
+        velocity = self.context.Bird.velocity
         return {"velocity": np.array(velocity, dtype=float),
-                "X": np.array([self.context.X], dtype=float),
-                "Y": np.array([self.context.Y], dtype=float),
-                "Y1": np.array([self.context.Y1], dtype=float)}
+                "X": np.array([self.context.root.X], dtype=float),
+                "Y": np.array([self.context.root.Y], dtype=float),
+                "Y1": np.array([self.context.root.Y1], dtype=float)}
 
     def terminated(self):
-        return self.context.dead != 0 or self.context.score >= 2 or self.context.Game.Bird.position[1] < 0
+        return self.context.root.dead != 0 or self.context.root.score >= 2 or self.context.Bird.position[1] < 0

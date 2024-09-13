@@ -15,7 +15,6 @@ size = Vector2(15, 14)
 size = Vector2(671, 32)
 
 [node name="PipeHeightStage" type="FeatureNode"]
-testing_state = "in_goal,dead"
 script = ExtResource("1_y4bu4")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -24,7 +23,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851982, 0, 0, 851986, 0, 0, 851985, 0, 0, 851984, 0, 0, 851983, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 917522, 0, 0, 917521, 0, 0, 917520, 0, 0, 917519, 0, 0, 917518, 0, 0, 917517, 0, 0, 917516, 0, 0, 917515, 0, 0, 917514, 0, 0)
 
 [node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_h7xgl")]
-testing_state = "is_jumping,position,velocity,environment,tilemap_position"
 position = Vector2(232, 207)
 collision_layer = 1
 script = ExtResource("4_hvg68")
@@ -41,6 +39,9 @@ limit_top = 0
 limit_bottom = 240
 limit_smoothed = false
 position_smoothing_speed = 16.0
+
+[node name="StateObserver" type="StateObserver" parent="Player"]
+testing_state = "is_jumping,position,velocity,environment,tilemap_position"
 
 [node name="Goal" type="Area2D" parent="."]
 collision_layer = 0
@@ -62,6 +63,9 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(232.5, 208)
 shape = SubResource("RectangleShape2D_t2lwb")
+
+[node name="StateObserver" type="StateObserver" parent="."]
+testing_state = "in_goal,dead"
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="." method="_on_goal_body_exited"]

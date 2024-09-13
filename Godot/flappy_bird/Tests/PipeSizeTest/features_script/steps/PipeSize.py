@@ -20,4 +20,4 @@ def step_impl(context):
 
 @then("bird should have passed {i:d} pipes")
 def step_impl(context, i):
-    context.assert_true(context.score >= i)
+    context.assert_true(context.root.score >= i)

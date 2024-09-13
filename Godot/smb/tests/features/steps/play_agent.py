@@ -69,10 +69,10 @@ class PlayAgent(Agent, Imitable):
     def reward(self) -> float:
         reward = 0
 
-        if self.context.in_goal:
+        if self.context.root.in_goal:
             return 1
 
-        if self.context.dead:
+        if self.context.root.dead:
             return -1
 
         goal_x, goal_y = self.context.goal
@@ -93,7 +93,7 @@ class PlayAgent(Agent, Imitable):
         return reward
 
     def terminated(self) -> bool:
-        return self.context.dead or self.context.in_goal
+        return self.context.root.dead or self.context.root.in_goal
 
     def actions(self, raws_actions) -> List[Input]:
         actions = []
