@@ -1,0 +1,177 @@
+{
+    "name": "core_sapphire_dawn",
+    "title": "tr_core_sapphire_dawn_campaign_title",
+    "icon": "blue_gem",
+    "prerequisite": "core_ruby_dusk",
+    "map": "map.jpeg",
+    "missions": [
+        {
+            "name": "lucrative_offer",
+            "title": "tr_core_sapphire_dawn_m1_name",
+            "map": "core_sap_dawn_lucrative_offer.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m1_desc",
+            "marker": [
+                1050,
+                1400
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "consolidation",
+            "title": "tr_core_sapphire_dawn_m2_name",
+            "map": "core_sap_dawn_consolidation.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m2_desc",
+            "marker": [
+                870,
+                1000
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "capital_offence",
+            "title": "tr_core_sapphire_dawn_m3_name",
+            "map": "core_sap_dawn_capital_offence.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m3_desc",
+            "marker": [
+                430,
+                410
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "noble_cause",
+            "title": "tr_core_sapphire_dawn_m4_name",
+            "map": "core_sap_dawn_noble_cause.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m4_desc",
+            "marker": [
+                280,
+                250
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai",
+                    "alive": false,
+                    "team": 0
+                }
+            ]
+        },
+        {
+            "name": "glimmer_of_jade",
+            "title": "tr_core_sapphire_dawn_m5_name",
+            "map": "core_sap_dawn_glimmer_of_jade.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m5_desc",
+            "marker": [
+                1395,
+                470
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "hostile_takeover",
+            "title": "tr_core_sapphire_dawn_m6_name",
+            "map": "core_sap_dawn_hostile_takeover.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m6_desc",
+            "marker": [
+                1590,
+                730
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "pursuit_of_greatness",
+            "title": "tr_core_sapphire_dawn_m7_name",
+            "map": "core_sap_dawn_pursuit_of_great.tofmap.json",
+            "description": "tr_core_sapphire_dawn_m7_desc",
+            "marker": [
+                1600,
+                1180
+            ],
+            "players": [
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        }
+    ]
+}

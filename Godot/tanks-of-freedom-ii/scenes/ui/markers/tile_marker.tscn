@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cirwr7ypc7t1u"]
+
+[ext_resource type="ArrayMesh" uid="uid://cp4xylwlqbo56" path="res://assets/gui/markers/tile_box.obj" id="2"]
+
+[node name="tile_marker" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = ExtResource("2")

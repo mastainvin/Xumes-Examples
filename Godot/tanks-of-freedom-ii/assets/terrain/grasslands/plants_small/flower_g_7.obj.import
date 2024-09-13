@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://72kbvp0ig1lr"
+path="res://.godot/imported/flower_g_7.obj-dfd8eccc615de0f02a31b9d92ffad206.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flower_g_7.obj-dfd8eccc615de0f02a31b9d92ffad206.mesh"]
+
+source_file="res://assets/terrain/grasslands/plants_small/flower_g_7.obj"
+dest_files=["res://.godot/imported/flower_g_7.obj-dfd8eccc615de0f02a31b9d92ffad206.mesh", "res://.godot/imported/flower_g_7.obj-dfd8eccc615de0f02a31b9d92ffad206.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

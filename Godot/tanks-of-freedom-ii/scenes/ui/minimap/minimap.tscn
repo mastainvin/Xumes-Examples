@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b68vtard4p6s3"]
+
+[ext_resource type="TileSet" uid="uid://1miyvu0etwgl" path="res://assets/gui/picker/minimap.tres" id="1"]
+[ext_resource type="Script" path="res://scenes/ui/minimap/minimap.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dqt600ejx5uaj" path="res://assets/gui/menu/backgrounds/map_panel.png" id="2_5k0cw"]
+
+[node name="minimap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2")
+
+[node name="map_list_background2" type="NinePatchRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 210.0
+offset_bottom = 210.0
+texture = ExtResource("2_5k0cw")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="minimap" type="TileMap" parent="."]
+position = Vector2(-240, -240)
+tile_set = ExtResource("1")
+format = 2
+layer_0/name = "base"

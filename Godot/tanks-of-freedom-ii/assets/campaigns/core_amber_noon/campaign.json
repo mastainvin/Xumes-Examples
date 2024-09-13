@@ -1,0 +1,194 @@
+{
+    "name": "core_amber_noon",
+    "title": "tr_core_amber_noon_campaign_title",
+    "icon": "yellow_gem",
+    "prerequisite": "core_jade_twilight",
+    "map": "map.jpeg",
+    "missions": [
+        {
+            "name": "king_in_making",
+            "title": "tr_core_amber_noon_m1_name",
+            "map": "core_amb_noon_king_in_making.tofmap.json",
+            "description": "tr_core_amber_noon_m1_desc",
+            "marker": [
+                3290,
+                2400
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "obsidian_shadow",
+            "title": "tr_core_amber_noon_m2_name",
+            "map": "core_amb_noon_obsidian_shadow.tofmap.json",
+            "description": "tr_core_amber_noon_m2_desc",
+            "marker": [
+                2000,
+                1900
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "black",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                }
+            ]
+        },
+        {
+            "name": "cracked_sapphire",
+            "title": "tr_core_amber_noon_m3_name",
+            "map": "core_amb_noon_cracked_sapphire.tofmap.json",
+            "description": "tr_core_amber_noon_m3_desc",
+            "marker": [
+                1195,
+                1790
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 100,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "blue",
+                    "ap": 100,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "black",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                }
+            ]
+        },
+        {
+            "name": "noble_redemption",
+            "title": "tr_core_amber_noon_m4_name",
+            "map": "core_amb_noon_noble_redemption.tofmap.json",
+            "description": "tr_core_amber_noon_m4_desc",
+            "marker": [
+                1135,
+                1135
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "red",
+                    "ap": 100,
+                    "type": "ai",
+                    "alive": false,
+                    "team": 0
+                },
+                {
+                    "side": "black",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                }
+            ]
+        },
+        {
+            "name": "mission_complete",
+            "title": "tr_core_amber_noon_m5_name",
+            "map": "core_amb_noon_mission_complete.tofmap.json",
+            "description": "tr_core_amber_noon_m5_desc",
+            "marker": [
+                1700,
+                1150
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "black",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                }
+            ]
+        },
+        {
+            "name": "in_the_name_of_the_king",
+            "title": "tr_core_amber_noon_m6_name",
+            "map": "core_amb_noon_name_of_king.tofmap.json",
+            "description": "tr_core_amber_noon_m6_desc",
+            "marker": [
+                1580,
+                400
+            ],
+            "players": [
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 0
+                },
+                {
+                    "side": "black",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                }
+            ]
+        }
+    ]
+}

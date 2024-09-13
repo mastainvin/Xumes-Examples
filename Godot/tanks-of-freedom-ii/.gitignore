@@ -1,0 +1,25 @@
+
+# Godot-specific ignores
+.import/
+.godot/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+
+*.sublime-*
+.idea
+*.tmp
+*.keystore
+*export_android.cfg
+
+# Files too big for github, need to be re-done in Godot
+assets/terrain/grasslands/grassland_library.tres
+assets/terrain/grasslands_library.tres
+
+**/.DS_Store
+
+#Editor addons
+addons/

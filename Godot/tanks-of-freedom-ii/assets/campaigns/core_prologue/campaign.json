@@ -1,0 +1,46 @@
+{
+    "name" : "core_prologue",
+    "title" : "tr_core_prologue_campaign_title",
+    "icon" : "book",
+    "map": "map.png",
+    "missions" : [
+        {
+            "name" : "another_excercise",
+            "title" : "tr_core_prologue_m1_name",
+            "map" : "prologue_excercise.tofmap.json",
+            "description" : "tr_core_prologue_m1_desc",
+            "marker" : [555, 315],
+            "players": [
+                {
+                    "side" : "yellow",
+                    "ap" : 0,
+                    "type" : "human"
+                },
+                {
+                    "side" : "red",
+                    "ap" : 0,
+                    "type" : "ai"
+                }
+            ]
+        },
+        {
+            "name" : "border_inspection",
+            "title" : "tr_core_prologue_m2_name",
+            "map" : "prologue_inspection.tofmap.json",
+            "description" : "tr_core_prologue_m2_desc",
+            "marker" : [250, 60],
+            "players": [
+                {
+                    "side" : "yellow",
+                    "ap" : 0,
+                    "type" : "human"
+                },
+                {
+                    "side" : "red",
+                    "ap" : 0,
+                    "type" : "ai"
+                }
+            ]
+        }
+    ]
+}

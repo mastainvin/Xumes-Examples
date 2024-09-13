@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi4blrx7exbvc"]
+
+[ext_resource type="Script" path="res://scenes/ui/board/end_turn.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://dkpcsi5rudp7j" path="res://assets/fonts/ttf/courier.ttf" id="2_nvtu5"]
+[ext_resource type="Texture2D" uid="uid://c1upgftggmnfv" path="res://assets/gui/menu/backgrounds/sub_panel3.png" id="2_rjt8c"]
+
+[node name="end_turn" type="Node2D"]
+script = ExtResource("2")
+
+[node name="background" type="NinePatchRect" parent="."]
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+texture = ExtResource("2_rjt8c")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="progress" type="ProgressBar" parent="background"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+max_value = 30.0
+step = 1.0
+show_percentage = false
+
+[node name="label" type="Label" parent="background"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+theme_override_fonts/font = ExtResource("2_nvtu5")
+theme_override_font_sizes/font_size = 42
+text = "TR_ENDING_TURN"
+horizontal_alignment = 1
+vertical_alignment = 1

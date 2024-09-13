@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://15ato4qbscnu"
+path="res://.godot/imported/commando.obj-9fb321d27c4c87697ce1aee3f4d4ba10.mesh"
+
+[deps]
+
+files=["res://.godot/imported/commando.obj-9fb321d27c4c87697ce1aee3f4d4ba10.mesh"]
+
+source_file="res://assets/units/heroes/commando.obj"
+dest_files=["res://.godot/imported/commando.obj-9fb321d27c4c87697ce1aee3f4d4ba10.mesh", "res://.godot/imported/commando.obj-9fb321d27c4c87697ce1aee3f4d4ba10.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

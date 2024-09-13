@@ -1,0 +1,332 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf7ix3pu4c806"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu/menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://thnrfs1tirjj" path="res://assets/gui/menu/backgrounds/main_panel.png" id="2_fcgt8"]
+[ext_resource type="Texture2D" uid="uid://bey3i1nl046fc" path="res://assets/gui/menu/buttons/buttonLong_brown.png" id="3_ao3ww"]
+[ext_resource type="FontFile" uid="uid://btstgc45ggura" path="res://assets/fonts/courier.tres" id="4_onr04"]
+[ext_resource type="Texture2D" uid="uid://2tgpj2lpm5ae" path="res://assets/gui/menu/buttons/buttonLong_brown_pressed.png" id="4_uk83y"]
+[ext_resource type="Texture2D" uid="uid://43s7leku2m4k" path="res://assets/gui/menu/buttons/buttonLong_brown_hover.png" id="5_twtay"]
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="1"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utmio"]
+_data = {
+"RESET": SubResource("3"),
+"hide": SubResource("1"),
+"show": SubResource("2")
+}
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="background" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -130.0
+offset_right = 200.0
+offset_bottom = 320.0
+texture = ExtResource("2_fcgt8")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="campaign_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = -70.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="campaign_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_CAMPAIGN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="skirmish_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = -20.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="skirmish_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_SKIRMISH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="multiplayer_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -10.0
+offset_right = 150.0
+offset_bottom = 30.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="multiplayer_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_MULTIPLAYER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="load_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 40.0
+offset_right = 150.0
+offset_bottom = 80.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="load_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_LOAD_GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="online_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 130.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="online_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_ONLINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="editor_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 140.0
+offset_right = 150.0
+offset_bottom = 180.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="editor_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_EDITOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settings_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 190.0
+offset_right = 150.0
+offset_bottom = 230.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="settings_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 260.0
+offset_right = 150.0
+offset_bottom = 300.0
+texture_normal = ExtResource("3_ao3ww")
+texture_pressed = ExtResource("4_uk83y")
+texture_hover = ExtResource("5_twtay")
+texture_focused = ExtResource("5_twtay")
+
+[node name="label" type="Label" parent="quit_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_onr04")
+text = "TR_QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animations" type="AnimationPlayer" parent="."]
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_utmio")
+}
+
+[connection signal="pressed" from="campaign_button" to="." method="_on_campaign_button_pressed"]
+[connection signal="pressed" from="skirmish_button" to="." method="_on_skirmish_button_pressed"]
+[connection signal="pressed" from="multiplayer_button" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="online_button" to="." method="_on_online_button_pressed"]
+[connection signal="pressed" from="editor_button" to="." method="_on_editor_button_pressed"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
