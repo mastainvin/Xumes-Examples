@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://cco5m3jr0wt7a" path="res://assets/buildings/blue/barracks.obj" id="1"]
 [ext_resource type="Material" uid="uid://bd7bg72rx00b2" path="res://assets/materials/arne32_blue.tres" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/buildings/building.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bif4f4faebcoj" path="res://scenes/tiles/buildings/building.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/abilities/production/blue/infantry.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/abilities/production/blue/mobile_infantry.tscn" id="5"]
 
@@ -41,10 +41,6 @@ _data = {
 
 [node name="tile" instance=ExtResource("3")]
 side = "blue"
-require_crew = true
-ap_gain = 5
-capture_value = 70
-uses_metallic_material = false
 
 [node name="mesh" parent="." index="0"]
 mesh = ExtResource("1")
@@ -59,6 +55,3 @@ index = 2
 libraries = {
 "": SubResource("AnimationLibrary_fcu7u")
 }
-
-[node name="capture" parent="audio" index="0"]
-bus = &"Units"

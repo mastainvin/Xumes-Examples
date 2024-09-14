@@ -4,19 +4,19 @@ var suspended = false
 var observed_event_type = [null]
 
 func _init(_board):
-	self.board = _board
+    self.board = _board
 
 func observe(event):
-	if self.suspended:
-		return
+    if self.suspended:
+        return
 
-	self._observe(event)
-	
+    self._observe(event)
+    
 func _observe(_event):
-	return
+    return
 
 func activate():
-	self.suspended = false
+    self.suspended = false
 
 func deactivate():
-	self.suspended = true
+    self.suspended = true

@@ -336,3 +336,4 @@ func close_credits():
 	self.ui.hide_credits()
 	await self.get_tree().create_timer(self.MENU_TIMEOUT).timeout
 	self.ui.show_menu()
+
