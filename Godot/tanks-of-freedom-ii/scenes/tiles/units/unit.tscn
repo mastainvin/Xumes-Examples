@@ -145,6 +145,7 @@ max_attacks = 1
 uses_metallic_material = false
 unit_value = 0
 unit_class = ""
+perform_extra_lookup = false
 
 [node name="mesh_anchor" type="Node3D" parent="." index="0"]
 
