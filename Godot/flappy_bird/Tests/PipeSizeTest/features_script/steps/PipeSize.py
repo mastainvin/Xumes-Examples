@@ -1,16 +1,12 @@
-from xumes import config, given, when, then
+from xumes import given, when, then
 
 from Tests.PipeSizeTest.features_script.steps.fly_script import FlyScript
 
 
-@config
-def config(context):
-    context.driver.set_scene("res://Tests/PipeSizeTest/PipeSizeTest.tscn")
-
-
 @given("first pipe at {i:f} and second pipe at {j:f}")
 def step_impl(context, i, j):
-    context.driver.set_pipes_position(i, j)
+    context.engine_driver.set_scene("res://Tests/PipeSizeTest/PipeSizeTest.tscn")
+    context.instance_driver.set_pipes_position(i, j)
 
 
 @when("bird flies")
