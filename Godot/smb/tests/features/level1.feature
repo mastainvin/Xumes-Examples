@@ -2,8 +2,9 @@ Feature: Test the first level
 
 
   Scenario Outline:
-    Given The player starts at <p_x> , <p_y>
-    And The goal is at <g_x> , <g_y>
+    Given The scene res://tests/level_1/test_level_1.tscn
+    And The player starts at <p_x> , <p_y>
+    And A goal at position <g_x> , <g_y>
     And An environment of size 35 x 15
     When I want to reach the goal with model : ./tests/features/models/backup/level_1_IL_RL
     Then Reach the goal without dying

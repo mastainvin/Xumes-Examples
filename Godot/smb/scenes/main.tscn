@@ -6,5 +6,6 @@
 [node name="Main" type="Node"]
 
 [node name="HUD" parent="." instance=ExtResource("2_jn731")]
+visible = false
 
 [node name="Stage" parent="." instance=ExtResource("2_54f2a")]

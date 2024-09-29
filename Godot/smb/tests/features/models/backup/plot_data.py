@@ -8,11 +8,11 @@ from scipy.ndimage import gaussian_filter1d
 # Créer un dictionnaire pour stocker les données
 donnees = {}
 
-dossiers = ['level_1_IL_RL', 'level_1_RL']
+dossiers = ['RL']
 # dossiers = ['IL_RL', 'RL']
 d = 'success'
 data_title = 'Number of Tests passed'
-title = f'Comparison of Test Success in Level 1 Testing: Pre-trained RL vs. Standard RL'
+# title = f'Comparison of Test Success in Level 1 Testing: Pre-trained RL vs. Standard RL'
 
 
 # Charger et lisser les données pour chaque fichier dans les dossiers
@@ -35,7 +35,7 @@ for dossier, data in donnees.items():
 # Ajouter des étiquettes et un titre
 plt.xlabel('Step')
 plt.ylabel(data_title)
-plt.title(title)
+# plt.title(title)
 
 # Ajouter une grille pour améliorer la lisibilité
 plt.grid(True, linestyle='--', alpha=0.6)

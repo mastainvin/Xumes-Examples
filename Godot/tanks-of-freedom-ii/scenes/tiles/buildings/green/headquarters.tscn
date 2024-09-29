@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cf1bvfsm08e70"]
 
 [ext_resource type="ArrayMesh" uid="uid://cs2xntyvnbpia" path="res://assets/buildings/green/headquarters.obj" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/tiles/buildings/building.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bif4f4faebcoj" path="res://scenes/tiles/buildings/building.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/abilities/production/green/infantry.tscn" id="3"]
 [ext_resource type="Material" uid="uid://cj2u6cis5y0wd" path="res://assets/materials/arne32_green.tres" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/abilities/production/heroes/admiral.tscn" id="5"]
@@ -42,10 +42,8 @@ _data = {
 
 [node name="tile" instance=ExtResource("2")]
 side = "green"
-require_crew = true
 ap_gain = 20
 capture_value = 1000
-uses_metallic_material = false
 
 [node name="mesh" parent="." index="0"]
 mesh = ExtResource("1")
@@ -64,6 +62,3 @@ index = 4
 libraries = {
 "": SubResource("AnimationLibrary_o0bqk")
 }
-
-[node name="capture" parent="audio" index="0"]
-bus = &"Units"

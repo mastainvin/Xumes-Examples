@@ -5,10 +5,12 @@ import pygame
 import stable_baselines3
 from gymnasium.vector.utils import spaces
 
-from xumes import Agent, Imitable, Imitator, Input
+from xumes import Agent, Imitable, Imitator, Input, TestStep
+from xumes.modules.godot.step.godot_action import GodotEventStep
 from xumes.modules.imitation_learning.bc import BC
 from xumes.modules.reinforcement_learning.agent import OBST
-from xumes import GodotAction
+from xumes import GodotAction, TestStep
+from xumes.test_automation.given_script import SequentialStep, DelayStep, CombinedStep
 
 
 class PlayAgent(Agent, Imitable):
@@ -35,7 +37,6 @@ class PlayAgent(Agent, Imitable):
         self._player_x, self._player_y = self.width // 2, self.height // 2
         self._previous_target_x, self._previous_target_y = 0, 0
         self._previous_player_x, self._previous_player_y = self._player_x, self._player_y
-
 
     def observation(self) -> OBST:
         env = self.context.Player.environment
@@ -78,7 +79,8 @@ class PlayAgent(Agent, Imitable):
         goal_x, goal_y = self.context.goal
         player_x, player_y = self.context.Player.tilemap_position
         distance_to_goal = np.sqrt((goal_x - player_x) ** 2 + (goal_y - player_y) ** 2)
-        previous_distance_to_goal = np.sqrt((goal_x - self._previous_player_x) ** 2 + (goal_y - self._previous_player_y) ** 2)
+        previous_distance_to_goal = np.sqrt(
+            (goal_x - self._previous_player_x) ** 2 + (goal_y - self._previous_player_y) ** 2)
 
         if distance_to_goal < previous_distance_to_goal:
             reward += 0.01
@@ -95,18 +97,47 @@ class PlayAgent(Agent, Imitable):
     def terminated(self) -> bool:
         return self.context.root.dead or self.context.root.in_goal
 
-    def actions(self, raws_actions) -> List[Input]:
-        actions = []
-        if raws_actions[0] == 1:
-            actions.append(GodotAction("move_left"))
-        if raws_actions[1] == 1:
-            actions.append(GodotAction("move_right"))
-        if raws_actions[2] == 1:
-            actions.append(GodotAction("jump"))
-        if raws_actions[3] == 1:
-            actions.append(GodotAction("run"))
-        return actions
+    class MarioAction(TestStep):
+        def __init__(self, raw_actions):
+            super().__init__()
+            self.raw_actions = raw_actions
 
+        def step(self) -> List[Input]:
+            steps = []
+            if self.raw_actions[0] == 1:
+                steps.append(SequentialStep([GodotEventStep(GodotAction("move_left"))]))
+            if self.raw_actions[1] == 1:
+                steps.append(GodotEventStep(GodotAction("move_right")))
+                # actions.append(GodotAction("move_right"))
+            if self.raw_actions[2] == 1:
+                steps.append(DelayStep(GodotEventStep(GodotAction("jump")), 0))
+                # actions.append(GodotAction("jump"))
+            if self.raw_actions[3] == 1:
+                steps.append(GodotEventStep(GodotAction("run")))
+                # actions.append(GodotAction("run"))
+
+            return CombinedStep(steps).step()
+
+        def is_complete(self) -> bool:
+            return True
+
+        def reset(self) -> None:
+            pass
+
+    def actions(self, raw_actions) -> List[Input] | TestStep:
+        return self.MarioAction(raw_actions)
+
+        # actions = []
+        # if raw_actions[0] == 1:
+        #     actions.append(GodotAction("move_left"))
+        # if raw_actions[1] == 1:
+        #     actions.append(GodotAction("move_right"))
+        # if raw_actions[2] == 1:
+        #     actions.append(GodotAction("jump"))
+        # if raw_actions[3] == 1:
+        #     actions.append(GodotAction("run"))
+
+        # return actions
     def imitator(self) -> Imitator:
         return PlayImitator(algorithm=BC(50),
                             threshold=2,

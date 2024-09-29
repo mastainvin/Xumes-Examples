@@ -15,6 +15,7 @@ config/description="Turn-based strategy game."
 config/version="0.7.0"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2")
+run/max_fps=10
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/gui/splash.png"
 boot_splash/use_filter=false
@@ -53,7 +54,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
-window/vsync/vsync_mode=false
+window/vsync/vsync_mode=0
 
 [filesystem]
 

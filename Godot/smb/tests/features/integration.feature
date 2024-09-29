@@ -2,10 +2,11 @@ Feature: Jump
 
   @all
   Scenario Outline: Vertical jump
-    Given A goal at position <x1> , <y1>
+    Given The scene res://tests/integration/pipe_height.tscn
+    And A goal at position <x1> , <y1>
     And Those platforms <platforms>
     And Those pipes <pipes>
-    And mario at <mx> , <my>
+    And The player starts at <mx> , <my>
     And An environment of size 35 x 15
     When I want to reach the goal with model : ./tests/features/models/backup/IL_RL
     Then Reach the goal without dying

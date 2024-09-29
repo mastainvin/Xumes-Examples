@@ -1,47 +1,31 @@
-from xumes import config, given, when, then
+from typing import List
 
-from tests.features.steps.play_agent import PlayAgent
-
-
-@config
-def step_impl(context):
-    context.driver.set_scene("res://tests/integration/pipe_height.tscn")
-
-
-@given("A goal at position {x:d} , {y:d}")
-def step_impl(context, x, y):
-    context.goal = (x, y)
-    context.driver.set_goal(x, y)
+from xumes import given, GodotEventStep, GodotAction, TestStep, Input
+from xumes.test_automation.test_context import TestContext
 
 
 @given("Those platforms {platforms:list}")
 def step_impl(context, platforms):
     for x, y, size in platforms:
-        context.driver.set_platform(x, y, size)
+        context.instance_driver.set_platform(x, y, size)
+
+class GoCenterStep(TestStep):
+
+    def step(self) -> List[Input]:
+        return [GodotAction("move_left"), GodotAction("jump")]
+
+    def is_complete(self):
+        return self.context.Player.tilemap_position[0] <= 14
+
+    def reset(self):
+        pass
 
 
 @given("Those pipes {pipes:list}")
-def step_impl(context, pipes):
+def step_impl(context: TestContext, pipes):
     for x, y, size in pipes:
-        context.driver.set_pipe(x, y, size)
+        context.instance_driver.set_pipe(x, y, size)
+   #  context.add_step(GoCenterStep())
 
 
-@given("mario at {x:d} , {y:d}")
-def step_impl(context, x, y):
-    context.driver.set_mario_position(x, y)
 
-
-@given("An environment of size {width:d} x {height:d}")
-def step_impl(context, width, height):
-    context.driver.set_environment(width, height)
-
-
-@when("I want to reach the goal with model : {model:s}")
-def step_impl(context, model):
-    return PlayAgent(model_path=model, width=35, height=15)
-
-
-@then("Reach the goal without dying")
-def step_impl(context):
-    context.assert_true(context.root.in_goal)
-    context.assert_false(context.root.dead)
