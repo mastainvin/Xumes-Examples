@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://46gpqiydpfdr"
+path="res://.godot/imported/bush_2.obj-7965f6359be62faf812f756cb8411339.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bush_2.obj-7965f6359be62faf812f756cb8411339.mesh"]
+
+source_file="res://assets/terrain/grasslands/plants/bush_2.obj"
+dest_files=["res://.godot/imported/bush_2.obj-7965f6359be62faf812f756cb8411339.mesh", "res://.godot/imported/bush_2.obj-7965f6359be62faf812f756cb8411339.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

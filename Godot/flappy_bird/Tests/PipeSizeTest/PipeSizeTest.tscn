@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://Tests/PipeSizeTest/PipesSpawner.gd" id="3_y524i"]
 
 [node name="PipeSizeTest" type="FeatureNode"]
-testing_state = "dead,score,X,Y,Y1"
 script = ExtResource("1_uwgsu")
 
 [node name="Game" parent="." instance=ExtResource("2_58ly7")]
@@ -22,7 +21,11 @@ visible = false
 [node name="HUD" parent="Game" index="5"]
 visible = false
 
-[node name="Bird" parent="Game" index="6"]
+[node name="StateObserver" type="StateObserver" parent="Game/Bird" index="3"]
 testing_state = "velocity,position"
 
+[node name="StateObserver" type="StateObserver" parent="."]
+testing_state = "dead,score,X,Y,Y1"
+
 [editable path="Game"]
+[editable path="Game/Bird"]

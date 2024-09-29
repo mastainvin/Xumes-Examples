@@ -1,0 +1,207 @@
+{
+    "name": "core_ruby_dusk",
+    "title": "tr_core_ruby_dusk_campaign_title",
+    "icon": "red_gem",
+    "prerequisite": "core_prologue",
+    "map": "map.jpeg",
+    "missions": [
+        {
+            "name": "sudden_strike",
+            "title": "tr_core_ruby_dusk_m1_name",
+            "map": "core_ruby_dusk_sudden_strike.tofmap.json",
+            "description": "tr_core_ruby_dusk_m1_desc",
+            "marker": [
+                2580,
+                1445
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "securing_lines",
+            "title": "tr_core_ruby_dusk_m2_name",
+            "map": "core_ruby_dusk_securing_lines.tofmap.json",
+            "description": "tr_core_ruby_dusk_m2_desc",
+            "marker": [
+                2930,
+                1340
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "taking_flight",
+            "title": "tr_core_ruby_dusk_m3_name",
+            "map": "core_ruby_dusk_taking_flight.tofmap.json",
+            "description": "tr_core_ruby_dusk_m3_desc",
+            "marker": [
+                2760,
+                870
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 50,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "gateway",
+            "title": "tr_core_ruby_dusk_m4_name",
+            "map": "core_ruby_dusk_gateway.tofmap.json",
+            "description": "tr_core_ruby_dusk_m4_desc",
+            "marker": [
+                2540,
+                610
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "amber_fortress",
+            "title": "tr_core_ruby_dusk_m5_name",
+            "map": "core_ruby_dusk_amber_fortress.tofmap.json",
+            "description": "tr_core_ruby_dusk_m5_desc",
+            "marker": [
+                4200,
+                840
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "stranded",
+            "title": "tr_core_ruby_dusk_m6_name",
+            "map": "core_ruby_dusk_stranded.tofmap.json",
+            "description": "tr_core_ruby_dusk_m6_desc",
+            "marker": [
+                4445,
+                1170
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 20,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "uninvited_guests",
+            "title": "tr_core_ruby_dusk_m7_name",
+            "map": "core_ruby_dusk_uninv_guests.tofmap.json",
+            "description": "tr_core_ruby_dusk_m7_desc",
+            "marker": [
+                2260,
+                3100
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 10,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "research_and_development",
+            "title": "tr_core_ruby_dusk_m8_name",
+            "map": "core_ruby_dusk_res_and_dev.tofmap.json",
+            "description": "tr_core_ruby_dusk_m8_desc",
+            "marker": [
+                1860,
+                3770
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "hold_the_line",
+            "title": "tr_core_ruby_dusk_m9_name",
+            "map": "core_ruby_dusk_hold_the_line.tofmap.json",
+            "description": "tr_core_ruby_dusk_m9_desc",
+            "marker": [
+                760,
+                4600
+            ],
+            "players": [
+                {
+                    "side": "red",
+                    "ap": 100,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        }
+    ]
+}

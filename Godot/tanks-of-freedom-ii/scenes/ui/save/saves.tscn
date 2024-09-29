@@ -1,0 +1,380 @@
+[gd_scene load_steps=16 format=3 uid="uid://4fm2h6kocq46"]
+
+[ext_resource type="Script" path="res://scenes/ui/save/saves.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://thnrfs1tirjj" path="res://assets/gui/menu/backgrounds/main_panel.png" id="2_ehj22"]
+[ext_resource type="PackedScene" uid="uid://c25khmnk6x2xp" path="res://scenes/ui/save/entry_button.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://cat1jloyg2wym" path="res://assets/gui/menu/buttons/buttonMed_brown.png" id="3_4fku8"]
+[ext_resource type="Texture2D" uid="uid://bbdwp6f0d3nib" path="res://assets/gui/menu/buttons/buttonMed_brown_pressed.png" id="4_3ivj0"]
+[ext_resource type="Texture2D" uid="uid://4ccwqkvp01tf" path="res://assets/gui/menu/backgrounds/sub_panel.png" id="4_21vmm"]
+[ext_resource type="Texture2D" uid="uid://dk8ep1qsmga0q" path="res://assets/gui/menu/buttons/buttonMed_brown_hover.png" id="5_4wdho"]
+[ext_resource type="FontFile" uid="uid://btstgc45ggura" path="res://assets/fonts/courier.tres" id="6_tty4u"]
+[ext_resource type="Texture2D" uid="uid://bey3i1nl046fc" path="res://assets/gui/menu/buttons/buttonLong_brown.png" id="9_x0bbf"]
+[ext_resource type="Texture2D" uid="uid://2tgpj2lpm5ae" path="res://assets/gui/menu/buttons/buttonLong_brown_pressed.png" id="10_qqsql"]
+[ext_resource type="Texture2D" uid="uid://43s7leku2m4k" path="res://assets/gui/menu/buttons/buttonLong_brown_hover.png" id="11_3vuh8"]
+
+[sub_resource type="Animation" id="1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylvri"]
+_data = {
+"RESET": SubResource("1"),
+"hide": SubResource("2"),
+"show": SubResource("3")
+}
+
+[node name="saves" type="Node2D"]
+visible = false
+script = ExtResource("2")
+
+[node name="background" type="NinePatchRect" parent="."]
+offset_left = -600.0
+offset_top = -350.0
+offset_right = 600.0
+offset_bottom = 350.0
+texture = ExtResource("2_ehj22")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="widgets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -600.0
+offset_top = -350.0
+offset_right = 600.0
+offset_bottom = 350.0
+
+[node name="cancel_button" type="TextureButton" parent="widgets"]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 640.0
+offset_right = 1170.0
+offset_bottom = 680.0
+texture_normal = ExtResource("3_4fku8")
+texture_pressed = ExtResource("4_3ivj0")
+texture_hover = ExtResource("5_4wdho")
+texture_focused = ExtResource("5_4wdho")
+
+[node name="label" type="Label" parent="widgets/cancel_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_CANCEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="map_list_background" type="NinePatchRect" parent="widgets"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -170.0
+texture = ExtResource("4_21vmm")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="save_list" type="Control" parent="widgets"]
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1170.0
+offset_bottom = 530.0
+
+[node name="entry0" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+
+[node name="entry1" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 50.0
+offset_bottom = 100.0
+
+[node name="entry2" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 100.0
+offset_bottom = 150.0
+
+[node name="entry3" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 150.0
+offset_bottom = 200.0
+
+[node name="entry4" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 200.0
+offset_bottom = 250.0
+
+[node name="entry5" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 250.0
+offset_bottom = 300.0
+
+[node name="entry6" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 300.0
+offset_bottom = 350.0
+
+[node name="entry7" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 350.0
+offset_bottom = 400.0
+
+[node name="entry8" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 400.0
+offset_bottom = 450.0
+
+[node name="entry9" parent="widgets/save_list" instance=ExtResource("3")]
+layout_mode = 0
+offset_top = 450.0
+offset_bottom = 500.0
+
+[node name="list_prev" type="TextureButton" parent="widgets"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 540.0
+offset_right = 220.0
+offset_bottom = 580.0
+focus_neighbor_right = NodePath("../list_next")
+texture_normal = ExtResource("3_4fku8")
+texture_pressed = ExtResource("4_3ivj0")
+texture_hover = ExtResource("5_4wdho")
+texture_focused = ExtResource("5_4wdho")
+
+[node name="label" type="Label" parent="widgets/list_prev"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_PREV"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="list_next" type="TextureButton" parent="widgets"]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 540.0
+offset_right = 1170.0
+offset_bottom = 580.0
+focus_neighbor_left = NodePath("../list_prev")
+texture_normal = ExtResource("3_4fku8")
+texture_pressed = ExtResource("4_3ivj0")
+texture_hover = ExtResource("5_4wdho")
+texture_focused = ExtResource("5_4wdho")
+
+[node name="label" type="Label" parent="widgets/list_next"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_NEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="new_save_button" type="TextureButton" parent="widgets"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = -20.0
+texture_normal = ExtResource("9_x0bbf")
+texture_pressed = ExtResource("10_qqsql")
+texture_hover = ExtResource("11_3vuh8")
+texture_focused = ExtResource("11_3vuh8")
+
+[node name="label" type="Label" parent="widgets/new_save_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_NEW_SAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="load_button" type="TextureButton" parent="widgets"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 640.0
+offset_right = 420.0
+offset_bottom = 680.0
+texture_normal = ExtResource("3_4fku8")
+texture_pressed = ExtResource("4_3ivj0")
+texture_hover = ExtResource("5_4wdho")
+texture_focused = ExtResource("5_4wdho")
+
+[node name="label" type="Label" parent="widgets/load_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_LOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="save_button" type="TextureButton" parent="widgets"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 640.0
+offset_right = 220.0
+offset_bottom = 680.0
+texture_normal = ExtResource("3_4fku8")
+texture_pressed = ExtResource("4_3ivj0")
+texture_hover = ExtResource("5_4wdho")
+texture_focused = ExtResource("5_4wdho")
+
+[node name="label" type="Label" parent="widgets/save_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tty4u")
+text = "TR_SAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animations" type="AnimationPlayer" parent="."]
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_ylvri")
+}
+
+[connection signal="pressed" from="widgets/cancel_button" to="." method="execute_cancel"]
+[connection signal="pressed" from="widgets/list_prev" to="." method="switch_to_prev_page"]
+[connection signal="pressed" from="widgets/list_next" to="." method="switch_to_next_page"]
+[connection signal="pressed" from="widgets/new_save_button" to="." method="execute_new_save"]
+[connection signal="pressed" from="widgets/load_button" to="." method="load_pressed"]
+[connection signal="pressed" from="widgets/save_button" to="." method="save_pressed"]

@@ -26,6 +26,7 @@ func _physics_process(delta):
 
 
 func _input(event):
+	print(event)
 	if Input.is_action_just_pressed("jump"):
 		jumping()
 		

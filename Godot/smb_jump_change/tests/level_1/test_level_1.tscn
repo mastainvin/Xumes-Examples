@@ -19,7 +19,6 @@ size = Vector2(15, 14)
 size = Vector2(3586, 32)
 
 [node name="Level1" type="FeatureNode"]
-testing_state = "in_goal,dead"
 script = ExtResource("1_a2h1n")
 
 [node name="Goal" type="Area2D" parent="."]
@@ -237,7 +236,6 @@ script = ExtResource("7_8vy70")
 item = 0
 
 [node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("6_x4x1y")]
-testing_state = "is_jumping,position,velocity,environment,tilemap_position"
 position = Vector2(86, 207)
 collision_layer = 1
 script = ExtResource("3_t1pqc")
@@ -254,6 +252,12 @@ limit_top = 0
 limit_bottom = 240
 limit_smoothed = false
 position_smoothing_speed = 16.0
+
+[node name="StateObserver" type="StateObserver" parent="Player"]
+testing_state = "is_jumping,position,velocity,environment,tilemap_position"
+
+[node name="StateObserver" type="StateObserver" parent="."]
+testing_state = "in_goal,dead"
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_exited" from="Goal" to="." method="_on_goal_body_exited"]

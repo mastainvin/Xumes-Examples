@@ -1,0 +1,521 @@
+[gd_scene load_steps=15 format=3 uid="uid://d10shqx6iv5t7"]
+
+[ext_resource type="PackedScene" uid="uid://btja81mcoqvcc" path="res://scenes/ui/menu/base_menu_panel.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/ui/online/online.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://dkpcsi5rudp7j" path="res://assets/fonts/ttf/courier.ttf" id="3_vc4q3"]
+[ext_resource type="Texture2D" uid="uid://csq1hhm0xchio" path="res://assets/gui/menu/buttons/buttonLarge_brown.png" id="4_s7jy4"]
+[ext_resource type="Texture2D" uid="uid://nove6ni5alhn" path="res://assets/gui/menu/buttons/buttonLarge_brown_pressed.png" id="5_bdg7k"]
+[ext_resource type="Texture2D" uid="uid://5jm4o80mt8a2" path="res://assets/gui/menu/buttons/buttonLarge_brown_hover.png" id="6_a7skv"]
+[ext_resource type="FontFile" uid="uid://btstgc45ggura" path="res://assets/fonts/courier.tres" id="7_o8rsi"]
+[ext_resource type="Texture2D" uid="uid://cat1jloyg2wym" path="res://assets/gui/menu/buttons/buttonMed_brown.png" id="9_3rwub"]
+[ext_resource type="Texture2D" uid="uid://bbdwp6f0d3nib" path="res://assets/gui/menu/buttons/buttonMed_brown_pressed.png" id="10_60bps"]
+[ext_resource type="Texture2D" uid="uid://dk8ep1qsmga0q" path="res://assets/gui/menu/buttons/buttonMed_brown_hover.png" id="11_s5eft"]
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="1"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hx6s"]
+_data = {
+"RESET": SubResource("3"),
+"hide": SubResource("1"),
+"show": SubResource("2")
+}
+
+[node name="online" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="register" type="Control" parent="widgets" index="0"]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="header" type="Label" parent="widgets/register" index="0"]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 42
+text = "TR_WELCOME_ONLINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="widgets/register" index="1"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "TR_NEED_REGISTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="register_button" type="TextureButton" parent="widgets/register" index="2"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 450.0
+offset_right = 800.0
+offset_bottom = 550.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/register/register_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_REGISTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="online" type="Control" parent="widgets" index="1"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="maps" type="Control" parent="widgets/online" index="0"]
+anchors_preset = 0
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+
+[node name="main" type="Control" parent="widgets/online/maps" index="0"]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="upload_button" type="TextureButton" parent="widgets/online/maps/main" index="0"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 500.0
+offset_bottom = 200.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/main/upload_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_UPLOAD_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="download_button" type="TextureButton" parent="widgets/online/maps/main" index="1"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 350.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/main/download_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_DOWNLOAD_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="nickname" type="LineEdit" parent="widgets/online/maps/main" index="2"]
+layout_mode = 0
+offset_left = 700.0
+offset_right = 1100.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "TR_NICKNAME"
+alignment = 1
+max_length = 20
+
+[node name="create_button" type="TextureButton" parent="widgets/online/maps/main" index="3"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 50.0
+offset_right = 1100.0
+offset_bottom = 150.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/main/create_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_CREATE_GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="join_code" type="LineEdit" parent="widgets/online/maps/main" index="4"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 250.0
+offset_right = 1100.0
+offset_bottom = 290.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "TR_JOIN_CODE"
+alignment = 1
+max_length = 20
+
+[node name="join_button" type="TextureButton" parent="widgets/online/maps/main" index="5"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 300.0
+offset_right = 1100.0
+offset_bottom = 400.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/main/join_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_JOIN_GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upload" type="Control" parent="widgets/online/maps" index="1"]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="description" type="Label" parent="widgets/online/maps/upload" index="0"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = -100.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "TR_SELECTED_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="name" type="Label" parent="widgets/online/maps/upload" index="1"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_bottom = -30.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_upload_button" type="TextureButton" parent="widgets/online/maps/upload" index="2"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 800.0
+offset_bottom = 300.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/upload/confirm_upload_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="change_button" type="TextureButton" parent="widgets/online/maps/upload" index="3"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 320.0
+offset_right = 800.0
+offset_bottom = 420.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/upload/change_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_CHANGE_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="download" type="Control" parent="widgets/online/maps" index="2"]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="description" type="Label" parent="widgets/online/maps/download" index="0"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = -100.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "TR_DOWNLOADING_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="widgets/online/maps/download" index="1"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_bottom = -30.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry_button" type="TextureButton" parent="widgets/online/maps/download" index="2"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 800.0
+offset_bottom = 300.0
+texture_normal = ExtResource("4_s7jy4")
+texture_pressed = ExtResource("5_bdg7k")
+texture_hover = ExtResource("6_a7skv")
+texture_focused = ExtResource("6_a7skv")
+
+[node name="label" type="Label" parent="widgets/online/maps/download/retry_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+theme_override_font_sizes/font_size = 42
+text = "TR_CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="busy" type="Control" parent="widgets/online/maps" index="3"]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="message" type="Label" parent="widgets/online/maps/busy" index="0"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_bottom = -30.0
+theme_override_fonts/font = ExtResource("3_vc4q3")
+theme_override_font_sizes/font_size = 30
+text = "TR_CONNECTING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="TextureButton" parent="widgets" index="2"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 640.0
+offset_right = 695.0
+offset_bottom = 680.0
+texture_normal = ExtResource("9_3rwub")
+texture_pressed = ExtResource("10_60bps")
+texture_hover = ExtResource("11_s5eft")
+texture_focused = ExtResource("11_s5eft")
+
+[node name="label" type="Label" parent="widgets/back_button" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_o8rsi")
+text = "TR_BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animations" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_5hx6s")
+}
+
+[connection signal="pressed" from="widgets/register/register_button" to="." method="_on_register_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/main/upload_button" to="." method="_on_upload_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/main/download_button" to="." method="_on_download_button_pressed"]
+[connection signal="focus_exited" from="widgets/online/maps/main/nickname" to="." method="_on_nickname_focus_exited"]
+[connection signal="pressed" from="widgets/online/maps/main/create_button" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/main/join_button" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/upload/confirm_upload_button" to="." method="_on_confirm_upload_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/upload/change_button" to="." method="_on_upload_button_pressed"]
+[connection signal="pressed" from="widgets/online/maps/download/retry_button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="widgets/back_button" to="." method="_on_back_button_pressed"]

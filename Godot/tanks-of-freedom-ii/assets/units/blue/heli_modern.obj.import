@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ojyaj0eq0e4r"
+path="res://.godot/imported/heli_modern.obj-4e7437610949b77552178a2c2a5fd82a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/heli_modern.obj-4e7437610949b77552178a2c2a5fd82a.mesh"]
+
+source_file="res://assets/units/blue/heli_modern.obj"
+dest_files=["res://.godot/imported/heli_modern.obj-4e7437610949b77552178a2c2a5fd82a.mesh", "res://.godot/imported/heli_modern.obj-4e7437610949b77552178a2c2a5fd82a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

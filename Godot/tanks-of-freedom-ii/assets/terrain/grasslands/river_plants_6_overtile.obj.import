@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cj6jq5exg65by"
+path="res://.godot/imported/river_plants_6_overtile.obj-6c2935fa88b970bed3bb0aa165f0b2fe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/river_plants_6_overtile.obj-6c2935fa88b970bed3bb0aa165f0b2fe.mesh"]
+
+source_file="res://assets/terrain/grasslands/river_plants_6_overtile.obj"
+dest_files=["res://.godot/imported/river_plants_6_overtile.obj-6c2935fa88b970bed3bb0aa165f0b2fe.mesh", "res://.godot/imported/river_plants_6_overtile.obj-6c2935fa88b970bed3bb0aa165f0b2fe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

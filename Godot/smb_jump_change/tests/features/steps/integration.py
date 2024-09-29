@@ -43,5 +43,5 @@ def step_impl(context, model):
 
 @then("Reach the goal without dying")
 def step_impl(context):
-    context.assert_true(context.in_goal)
-    context.assert_false(context.dead)
+    context.assert_true(context.root.in_goal)
+    context.assert_false(context.root.dead)

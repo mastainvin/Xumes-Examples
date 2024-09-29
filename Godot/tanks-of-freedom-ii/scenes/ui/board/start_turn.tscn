@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3 uid="uid://botr5y82s8y8r"]
+
+[ext_resource type="Script" path="res://scenes/ui/board/start_turn.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1upgftggmnfv" path="res://assets/gui/menu/backgrounds/sub_panel3.png" id="2_kff67"]
+[ext_resource type="PackedScene" path="res://scenes/ui/icons/nations/blue.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/icons/nations/yellow.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/icons/nations/green.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/icons/nations/red.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/ui/icons/nations/black.tscn" id="7"]
+[ext_resource type="FontFile" uid="uid://dkpcsi5rudp7j" path="res://assets/fonts/ttf/courier.ttf" id="8_a6ihg"]
+
+[sub_resource type="Animation" id="2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="1"]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1puoi"]
+_data = {
+"RESET": SubResource("2"),
+"show": SubResource("1")
+}
+
+[node name="start_turn" type="Node2D"]
+script = ExtResource("2")
+
+[node name="background" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -300.0
+offset_top = -90.0
+offset_right = 300.0
+offset_bottom = 90.0
+texture = ExtResource("2_kff67")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="blue_player" type="Label" parent="background"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 85.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "TR_SAP_DAWN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blue" parent="background/blue_player" instance=ExtResource("3")]
+position = Vector2(300, -40)
+
+[node name="red_player" type="Label" parent="background"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 85.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "TR_RUBY_DUSK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="red" parent="background/red_player" instance=ExtResource("6")]
+position = Vector2(300, -40)
+
+[node name="yellow_player" type="Label" parent="background"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 85.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "TR_AMBER_NOON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="yellow" parent="background/yellow_player" instance=ExtResource("4")]
+position = Vector2(300, -40)
+
+[node name="green_player" type="Label" parent="background"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 85.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "TR_JADE_TWILIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="green" parent="background/green_player" instance=ExtResource("5")]
+position = Vector2(300, -40)
+
+[node name="black_player" type="Label" parent="background"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 85.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "TR_OBS_NIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="black" parent="background/black_player" instance=ExtResource("7")]
+position = Vector2(300, -40)
+
+[node name="turn" type="Label" parent="background"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 130.0
+theme_override_fonts/font = ExtResource("8_a6ihg")
+theme_override_font_sizes/font_size = 42
+text = "Turn 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animations" type="AnimationPlayer" parent="."]
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_1puoi")
+}

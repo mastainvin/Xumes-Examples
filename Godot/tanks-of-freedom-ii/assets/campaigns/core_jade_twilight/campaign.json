@@ -1,0 +1,187 @@
+{
+    "name": "core_jade_twilight",
+    "title": "tr_core_jade_twilight_campaign_title",
+    "icon": "green_gem",
+    "prerequisite": "core_sapphire_dawn",
+    "map": "map.jpeg",
+    "missions": [
+        {
+            "name": "the_envoy",
+            "title": "tr_core_jade_twilight_m1_name",
+            "map": "core_jade_twi_envoy.tofmap.json",
+            "description": "tr_core_jade_twilight_m1_desc",
+            "marker": [
+                4140,
+                3750
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "delegation",
+            "title": "tr_core_jade_twilight_m2_name",
+            "map": "core_jade_twi_delegation.tofmap.json",
+            "description": "tr_core_jade_twilight_m2_desc",
+            "marker": [
+                2740,
+                2700
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "exchange_arguments",
+            "title": "tr_core_jade_twilight_m3_name",
+            "map": "core_jade_twi_exchange_args.tofmap.json",
+            "description": "tr_core_jade_twilight_m3_desc",
+            "marker": [
+                2100,
+                1830
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai",
+                    "alive": false,
+                    "team": 1
+                }
+            ]
+        },
+        {
+            "name": "lost_in_translation",
+            "title": "tr_core_jade_twilight_m4_name",
+            "map": "core_jade_twi_lost_translation.tofmap.json",
+            "description": "tr_core_jade_twilight_m4_desc",
+            "marker": [
+                1720,
+                1150
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "hard_diplomacy",
+            "title": "tr_core_jade_twilight_m5_name",
+            "map": "core_jade_twi_hard_diplomacy.tofmap.json",
+            "description": "tr_core_jade_twilight_m5_desc",
+            "marker": [
+                1250,
+                1450
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human",
+                    "team": 0
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                },
+                {
+                    "side": "yellow",
+                    "ap": 0,
+                    "type": "ai",
+                    "team": 1
+                },
+                {
+                    "side": "red",
+                    "ap": 0,
+                    "type": "ai",
+                    "alive": false,
+                    "team": 0
+                }
+            ]
+        },
+        {
+            "name": "marathon",
+            "title": "tr_core_jade_twilight_m6_name",
+            "map": "core_jade_twi_marathon.tofmap.json",
+            "description": "tr_core_jade_twilight_m6_desc",
+            "marker": [
+                1700,
+                800
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        },
+        {
+            "name": "building_bridges",
+            "title": "tr_core_jade_twilight_m7_name",
+            "map": "core_jade_twi_building_bridges.tofmap.json",
+            "description": "tr_core_jade_twilight_m7_desc",
+            "marker": [
+                3170,
+                1700
+            ],
+            "players": [
+                {
+                    "side": "green",
+                    "ap": 0,
+                    "type": "human"
+                },
+                {
+                    "side": "blue",
+                    "ap": 0,
+                    "type": "ai"
+                }
+            ]
+        }
+    ]
+}

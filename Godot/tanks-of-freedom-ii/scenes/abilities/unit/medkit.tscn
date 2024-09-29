@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/abilities/unit/active.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/abilities/unit/medkit.gd" type="Script" id=2]
+
+[node name="medkit" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+label = "TR_MEDKIT"
+description = "TR_MEDKIT_DESC"
+ap_cost = 5
+cooldown = 3
+ability_range = 1
+draw_range = 1
+named_icon = "medkit"
+marker_colour = "green"
+heal = 5

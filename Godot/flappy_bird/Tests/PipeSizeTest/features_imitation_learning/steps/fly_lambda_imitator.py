@@ -32,25 +32,25 @@ class Fly(Agent, Imitable):
         self.points = 0
 
     def observation(self):
-        velocity = self.context.Game.Bird.velocity
+        velocity = self.context.Bird.velocity
         return {
             "velocity": np.array(velocity, dtype=np.float32),
-            "X": np.array([self.context.X], dtype=np.float32),
-            "Y": np.array([self.context.Y], dtype=np.float32),
-            "Y1": np.array([self.context.Y1], dtype=np.float32)
+            "X": np.array([self.context.root.X], dtype=np.float32),
+            "Y": np.array([self.context.root.Y], dtype=np.float32),
+            "Y1": np.array([self.context.root.Y1], dtype=np.float32)
         }
 
     def reward(self):
-        if self.context.score > self.points:
-            self.points = self.context.score
+        if self.context.root.score > self.points:
+            self.points = self.context.root.score
             return 1
 
-        if self.context.dead or self.context.Game.Bird.position[1] < 0:
+        if self.context.root.dead or self.context.Bird.position[1] < 0:
             return -1
         return 0
 
     def terminated(self):
-        terminated = self.context.dead != 0 or self.context.score >= 2 or self.context.Game.Bird.position[1] < 0
+        terminated = self.context.root.dead != 0 or self.context.root.score >= 2 or self.context.Bird.position[1] < 0
         if terminated:
             self.points = 0
         return terminated

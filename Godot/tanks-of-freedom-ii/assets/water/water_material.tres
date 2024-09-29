@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvv3sh0uq5ynp"]
+
+[ext_resource type="Shader" path="res://assets/water/water.gdshader" id="1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/amplitude = Vector2(0.2, 0.1)
+shader_parameter/frequency = Vector2(3, 2.5)
+shader_parameter/time_factor = Vector2(2, 1)
+shader_parameter/texture_scale = Vector2(70, 70)
+shader_parameter/uv_offset_scale = Vector2(0.2, 0.2)
+shader_parameter/uv_offset_time_scale = 0.01
+shader_parameter/uv_offset_amplitude = 0.05

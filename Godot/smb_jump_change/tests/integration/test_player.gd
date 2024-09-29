@@ -1,6 +1,5 @@
 extends Player
 
-
 class_name TestPlayer
 
 var tile_coords_to_type := {
@@ -86,5 +85,3 @@ func add_to_env_matrix(block):
 func remove_from_env_matrix(block):
 	if block_env.has(block):
 		block_env.erase(block)
-
-

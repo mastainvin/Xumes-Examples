@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b01tgn4xapfht"]
+
+[ext_resource type="ArrayMesh" uid="uid://s5wfiw2x0hcy" path="res://assets/terrain/sandlands/dunes_2_overtile.obj" id="2_d7xs0"]
+[ext_resource type="PackedScene" uid="uid://cx8fo1iuv1i0n" path="res://scenes/tiles/tile.tscn" id="3"]
+[ext_resource type="Material" uid="uid://dsu36bregabs6" path="res://assets/materials/arne32.tres" id="3_b6q7h"]
+
+[node name="tile" instance=ExtResource("3")]
+
+[node name="mesh" parent="." index="0"]
+mesh = ExtResource("2_d7xs0")
+surface_material_override/0 = ExtResource("3_b6q7h")
